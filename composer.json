@@ -1,0 +1,16 @@
+{
+    "name": "guilherme/barbersystem",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Guilherme\\Barbersystem\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Guilherme R. de Oliveira",
+            "email": "guilhermerl.dev@gmail.com"
+        }
+    ],
+    "require": {}
+}
