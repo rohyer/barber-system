@@ -4,5 +4,17 @@
   "main": "index.js",
   "repository": "https://github.com/rohyer/barber-system.git",
   "author": "Guilherme R. de Oliveira <guilhermerl.dev@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^7.0.1",
+    "del": "^7.1.0",
+    "gulp": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^10.0.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.75.0"
+  }
 }
