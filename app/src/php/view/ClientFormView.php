@@ -6,6 +6,8 @@
   <title>Document</title>
 </head>
 <body>
+
+  <?php include dirname(__DIR__) . "/view/components/nav.php"; ?>
   
   <form action="cadastro-cliente" method="post">
     <label for="name">Nome:</label>
