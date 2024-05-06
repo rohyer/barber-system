@@ -1,5 +1,4 @@
 <?php
-require dirname(__DIR__) . "/model/ConnectionModel.php";
 
 class ClientModel {
   private $objConnection;
@@ -11,6 +10,7 @@ class ClientModel {
   private $phone;
 
   public function __construct() {
+    require dirname(__DIR__) . "/model/ConnectionModel.php";
     $this->objConnection = new ConnectionModel();
   }
 
