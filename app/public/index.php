@@ -1,14 +1,30 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./dist/style.min.css">
-</head>
-<body>
-  
+<?php
 
-  <script type="module" src="./dist/script.js"></script>
-</body>
-</html>
+require dirname(__DIR__) . "/src/php/controller/ClientController.php";
+require dirname(__DIR__) . "/src/php/controller/AdminController.php";
+
+$uri = $_SERVER["REQUEST_URI"];
+
+// echo $uri;
+
+
+switch ($uri) {
+  case '/barbersystem/app/public/':
+    AdminController::getHome();
+    break;
+
+  case '/barbersystem/app/public/formulario-cliente':
+    ClientController::formClient();
+    break;
+  
+  case '/barbersystem/app/public/cadastro-cliente':
+    ClientController::createClient();
+    break;
+
+  case '/barbersystem/app/public/clientes':
+    ClientController::readClient();
+  
+  default:
+    # code...
+    break;
+}
