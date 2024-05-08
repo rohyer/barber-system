@@ -48,7 +48,7 @@ class ClientModel {
     $getConnection = $this->objConnection->getConnection();
 
     try {
-      $sql = "Select name FROM client";
+      $sql = "Select name, birth, sex FROM client";
 
       $stmt = $getConnection->prepare($sql);
 
