@@ -23,29 +23,33 @@
         <span class="client__categories" data-state="false">Desativos</span>
       </div>
 
-      <table class="client__table">
-        <tr>
-          <th>Nome</th>
-          <th>Último Atendimento</th>
-          <th>Idade</th>
-          <th>Sexo</th>
-        </tr>
+      <div class="client__list">
+        <div class="client__head-row">
+          <span>Nome</span>
+          <span>Último Atendimento</span>
+          <span>Idade</span>
+          <span>Sexo</span>
+        </div>
+
         <?php
-        foreach ($result as $r) {
+        foreach ($result as $r):
           $date = new DateTime($r["birth"]);
           $now = new DateTime();
           $age = $now->diff($date);
 
-          echo "<tr>";
-          echo "<td>" . $r["name"] . "</td>";
-          echo "<td>" . "</td>";
-          echo "<td>" . $age->y . "</td>";
-          echo "<td>" . $r["sex"] . "</td>";
-          echo "<td><i class='fa-solid fa-trash'></i></td>";
-          echo "</tr>";
-        }
+          echo "<div class='client__row'>";
+          echo "<a href='#'></a>";
+          echo "<span>" . $r["name"] . "</span>";
+          echo "<span>" . "</span>";
+          echo "<span>" . $age->y . "</span>";
+          echo "<span>" . $r["sex"] . "</span>";
+          echo "<span><i class='fa-solid fa-trash'></i></span>";
+          echo "</div>";
+        endforeach;
         ?>
-      </table>
+      </div>
+
+      
     </div>
 
   </div>
