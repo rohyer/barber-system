@@ -19,5 +19,4 @@ class ConnectionModel {
       echo "Error: " . $error->getMessage();
     }
   }
-
 }
