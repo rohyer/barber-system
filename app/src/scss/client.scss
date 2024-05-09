@@ -1,3 +1,5 @@
+// ClientListView
+
 .client {
   &__content {
     width: calc(100% - 365px);
@@ -55,7 +57,7 @@
 
   &__head-row {
     display: grid;
-    grid-template-columns: 1fr 1fr 0.5fr 0.5fr 0.5fr;
+    grid-template-columns: 1fr 1fr 0.5fr 0.5fr 0.25fr 0.25fr;
     height: 30px;
     margin-bottom: 10px;
 
@@ -73,9 +75,9 @@
   &__row {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr 0.5fr 0.5fr 0.5fr;
+    grid-template-columns: 1fr 1fr 0.5fr 0.5fr 0.25fr 0.25fr;
     height: 30px;
-    background-color: #EEEEEE;
+    background-color: #F3F3F3;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 15px;
@@ -83,7 +85,7 @@
     transition: all .25s;
     
     &:hover {
-      background-color: #e8e8e8;
+      background-color: #EEEEEE;
     }
 
     & > a {
@@ -115,5 +117,112 @@
     text-align: left;
     z-index: 9;
   }
+
+  &__delete > a, &__edit > a {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    z-index: 9;
+    transition: all .25s;
+
+    &:hover {
+      background-color: #FFF;
+    }
+  }
 }
 
+// ClientFormView
+
+.client {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+  }
+
+  &__input-field {
+    margin-bottom: 15px;
+
+    label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      font-style: normal;
+      color: #333;
+    }
+
+    input[type="text"] {
+      height: 35px;
+      width: 100%;
+      margin-bottom: 10px;
+      border: none;
+      outline: none;
+      padding: 0 10px;
+      margin: 0;
+
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      font-style: normal;
+      color: #333;
+    }
+
+    input[type="submit"] {
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      font-style: normal;
+      width: 200px;
+      height: 40px;
+      background-color: transparent;
+      border: 2px solid #333;
+      transition: all .25s;
+
+      &:hover {
+        background-color: #EEE;
+      }
+      &:focus {
+        background-color: #DDD;
+      }
+    }
+
+    .bar {
+      position: relative;
+      width: 100%;
+      border-bottom: 2px solid #CCC;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 2px;
+        width: 0px;
+        background-color: #000;
+        transition: all .25s;
+      }
+    }
+
+    input:focus ~ .bar {
+      &:after {
+        width: 100%;
+      }
+    }
+
+    span {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      font-style: normal;
+      color: #FF0000;
+    }
+  }
+}
