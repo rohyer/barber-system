@@ -15,13 +15,9 @@ switch ($uri) {
     break;
 
   case '/barbersystem/app/public/formulario-cliente':
-    ClientController::formClient();
-    break;
-  
-  case '/barbersystem/app/public/cadastro-cliente':
     ClientController::createClient();
     break;
-
+  
   case '/barbersystem/app/public/clientes':
     ClientController::readClient();
     break;
