@@ -33,20 +33,29 @@
 
         <?php
         foreach ($result as $r):
-          $date = new DateTime($r["birth"]);
-          $now = new DateTime();
-          $age = $now->diff($date);
-
-          echo "<div class='client__row'>";
-          echo "<a href='#'></a>";
-          echo "<span>" . $r["name"] . "</span>";
-          echo "<span>" . "</span>";
-          echo "<span>" . $age->y . "</span>";
-          echo "<span>" . $r["sex"] . "</span>";
-          echo "<span><i class='fa-solid fa-trash'></i></span>";
-          echo "</div>";
-        endforeach;
+        $date = new DateTime($r["birth"]);
+        $now = new DateTime();
+        $age = $now->diff($date);
         ?>
+
+          <div class='client__row'>
+            <a href='#'></a>
+            <span><?php echo $r["name"] ?></span>
+            <span></span>
+            <span><?php echo $age->y ?></span>
+            <span><?php echo $r["sex"] ?> </span>
+            <span class="client__edit">
+              <a href="cliente/edita-cliente?id=<?php echo $r["id"] ?>">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </a>
+            </span>
+            <span class="client__delete">
+              <a href="cliente/deleta-cliente?id=<?php echo $r["id"] ?>">
+                <i class='fa-solid fa-trash'></i>
+              </a>
+            </span>
+          </div>
+        <?php endforeach; ?>
       </div>
 
       
