@@ -12,23 +12,23 @@ switch ($finalUri["path"]) {
     AdminController::getHome();
     break;
 
-  case '/barbersystem/app/public/formulario-cliente':
+  case '/barbersystem/app/public/cliente/cadastro':
     ClientController::createClient();
     break;
 
-  case "/barbersystem/app/public/cliente/deleta-cliente":
+  case "/barbersystem/app/public/cliente/deleta":
     if ($finalUri["query"]) {
       $query = explode("=", $finalUri["query"])[1];
     }
     ClientController::deleteClient($query);
-  
+
   case '/barbersystem/app/public/clientes':
     ClientController::readClient();
     break;
 
   case '/barbersystem/app/public/colaboradores':
     EmployeeController::readEmployee();
-  
+
   default:
     # code...
     break;
