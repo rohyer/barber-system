@@ -1,7 +1,8 @@
 <?php
 require_once dirname(__DIR__) . "/model/ConnectionModel.php";
 
-class ClientModel {
+class ClientModel
+{
   private $objConnection;
   private $id;
   private $name;
@@ -10,18 +11,21 @@ class ClientModel {
   private $birth;
   private $phone;
 
-  public function __construct() {
+  public function __construct()
+  {
     $this->objConnection = new ConnectionModel();
   }
 
-  private function testInput($data) {
+  private function testInput($data)
+  {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
   }
 
-  private function validateForm($data) {
+  private function validateForm($data)
+  {
     $nameError = $addressError = $sexError = $birthError = $phoneError = "";
 
     if (empty($data["name"])) {
@@ -57,9 +61,10 @@ class ClientModel {
     }
   }
 
-  public function createClient($data) {
+  public function createClient($data)
+  {
     $validateResult = $this->validateForm($data);
-    
+
     if ($validateResult !== true) {
       return $validateResult;
     } else {
@@ -80,17 +85,18 @@ class ClientModel {
         } else {
           return false;
         }
-      } catch(PDOException $error) {
+      } catch (PDOException $error) {
         echo "Error: " . $error->getMessage();
       }
     }
   }
 
-  public function readClient() {
+  public function readClient()
+  {
     $getConnection = $this->objConnection->getConnection();
 
     try {
-      $sql = "Select id, name, birth, sex FROM client";
+      $sql = "Select id, name, birth, sex, phone FROM client";
 
       $stmt = $getConnection->prepare($sql);
 
@@ -98,12 +104,13 @@ class ClientModel {
         $result = $stmt->fetchAll();
         return $result;
       }
-    } catch(PDOException $error) {
+    } catch (PDOException $error) {
       echo "Error: " . $error->getMessage();
     }
   }
 
-  public function deleteClient($id) {
+  public function deleteClient($id)
+  {
     $getConnection = $this->objConnection->getConnection();
 
     $this->id = $id;
@@ -119,8 +126,7 @@ class ClientModel {
       } else {
         return false;
       }
-
-    } catch(PDOException $error) {
+    } catch (PDOException $error) {
       echo "Error: " . $error->getMessage();
     }
   }

@@ -1,8 +1,10 @@
 <?php
 
-class EmployeeController {
-  
-  public static function readEmployee() {
+class EmployeeController
+{
+
+  public static function readEmployee()
+  {
     include dirname(__DIR__) . "/model/EmployeeModel.php";
 
     $objEmployeeModel = new EmployeeModel();
