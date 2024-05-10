@@ -11,17 +11,17 @@
       </a>
     </li>
     <li>
-      <a href="agenda" class="nav__link">
+      <a href="/barbersystem/app/public/agenda" class="nav__link">
         <div><i class="fa-solid fa-calendar-days"></i></div>Agenda
       </a>
     </li>
     <li>
-      <a href="clientes" class="nav__link">
+      <a href="/barbersystem/app/public/clientes" class="nav__link">
         <div><i class="fa-solid fa-user-group"></i></div>Clientes
       </a>
     </li>
     <li>
-      <a href="colaboradores" class="nav__link">
+      <a href="/barbersystem/app/public/colaboradores" class="nav__link">
         <div><i class="fa-solid fa-handshake"></i></div>Colaboradores
       </a>
     </li>
