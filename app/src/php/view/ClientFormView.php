@@ -22,47 +22,46 @@
     <form action="cadastro" method="post" class="client__form">
       <div class="client__input-field">
         <label for="name">Nome:</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" value="<?php echo isset($result[0]) ? $result[0]["name"] : ""; ?>">
         <div class="bar"></div>
-        <span><?php echo $result["name"]; ?></span>
+        <span><?php echo isset($result["name"]) ? $result["name"] : ""; ?></span>
       </div>
 
       <div class="client__input-field">
         <label for="sex">Sexo:</label>
         <div class="client__input-field--group">
           <select name="sex" id="sex">
-            <option value="M">Masculino</option>
-            <option value="F">Feminino</option>
-            <option value="O">Outro</option>
+            <option value="M" <?php echo (isset($result[0]["sex"]) && $result[0]["sex"] === "M") ? "selected" : ""; ?>>Masculino</option>
+            <option value="F" <?php echo (isset($result[0]["sex"]) && $result[0]["sex"] === "F") ? "selected" : ""; ?>>Feminino</option>
+            <option value="Outro" <?php echo (isset($result[0]["sex"]) && $result[0]["sex"] === "Outro") ? "selected" : ""; ?>>Outro</option>
           </select>
           <div class="bar"></div>
         </div>
-        <span><?php echo $result["sex"]; ?></span>
+        <span><?php echo isset($result["sex"]) ? $result["sex"] : ""; ?></span>
       </div>
 
       <div class="client__input-field">
         <label for="address">Endereço:</label>
-        <input type="text" id="address" name="address">
+        <input type="text" id="address" name="address" value="<?php echo isset($result[0]) ? $result[0]["address"] : ""; ?>">
         <div class="bar"></div>
-        <span><?php echo $result["address"]; ?></span>
+        <span><?php echo isset($result["address"]) ? $result["address"] : ""; ?></span>
       </div>
 
       <div class="client__input-field">
         <label for="input-birth">Data de Nascimento:</label>
         <div class="client__input-field--group">
 
-          <input type="date" name="birth" id="input-birth">
-          <!-- <input type="text" minlength="10" maxlength="10" id="input-birth" name="birth"> -->
+          <input type="date" name="birth" id="input-birth" value="<?php echo isset($result[0]) ? $result[0]["birth"] : ""; ?>">
           <div class="bar"></div>
         </div>
-        <span><?php echo $result["birth"]; ?></span>
+        <span><?php echo isset($result["birth"]) ? $result["birth"] : ""; ?></span>
       </div>
 
       <div class="client__input-field">
         <label for="input-phone">Telefone:</label>
-        <input type="text" maxlength="15" id="input-phone" name="phone">
+        <input type="text" maxlength="15" id="input-phone" name="phone" value="<?php echo isset($result[0]) ? $result[0]["phone"] : ""; ?>">
         <div class="bar"></div>
-        <span><?php echo $result["phone"]; ?></span>
+        <span><?php echo isset($result["phone"]) ? $result["phone"] : ""; ?></span>
       </div>
 
       <div class="client__input-field">
