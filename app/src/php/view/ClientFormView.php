@@ -29,8 +29,14 @@
 
       <div class="client__input-field">
         <label for="sex">Sexo:</label>
-        <input type="text" id="sex" name="sex">
-        <div class="bar"></div>
+        <div class="client__input-field--group">
+          <select name="sex" id="sex">
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            <option value="O">Outro</option>
+          </select>
+          <div class="bar"></div>
+        </div>
         <span><?php echo $result["sex"]; ?></span>
       </div>
 
@@ -43,8 +49,12 @@
 
       <div class="client__input-field">
         <label for="input-birth">Data de Nascimento:</label>
-        <input type="text" minlength="10" maxlength="10" id="input-birth" name="birth">
-        <div class="bar"></div>
+        <div class="client__input-field--group">
+
+          <input type="date" name="birth" id="input-birth">
+          <!-- <input type="text" minlength="10" maxlength="10" id="input-birth" name="birth"> -->
+          <div class="bar"></div>
+        </div>
         <span><?php echo $result["birth"]; ?></span>
       </div>
 
