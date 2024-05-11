@@ -42,4 +42,12 @@ class ClientController
       header("Location: /barbersystem/app/public/clientes");
     }
   }
+
+  public static function editClient($id)
+  {
+    $objClientModel = new ClientModel();
+    $result = $objClientModel->editClient($id);
+
+    require_once dirname(__DIR__) . "/view/ClientFormView.php";
+  }
 }
