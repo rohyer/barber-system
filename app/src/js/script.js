@@ -56,3 +56,35 @@ inputBirth.addEventListener("keyup", function (e) {
   const formattedInput = formatBirthInput(e.target.value);
   e.target.value = formattedInput;
 });
+
+// Save Form
+
+function clearForm() {
+  document.getElementById("name").value = "";
+  document.getElementById("sex").value = "M";
+  document.getElementById("address").value = "";
+  document.getElementById("input-birth").value = "";
+  document.getElementById("input-phone").value = "";
+
+  alert("Cliente cadastrado com sucesso!");
+}
+
+async function postData(formattedFormData) {
+  const response = await fetch("cadastro", {
+    method: "POST",
+    body: formattedFormData,
+  });
+
+  const data = response.ok;
+
+  if (data) clearForm();
+}
+
+const form = document.querySelector(".client__form");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const formattedFormData = new FormData(form);
+  postData(formattedFormData);
+});
