@@ -130,4 +130,27 @@ class ClientModel
       echo "Error: " . $error->getMessage();
     }
   }
+
+  public function editClient($id)
+  {
+    $getConnection = $this->objConnection->getConnection();
+
+    $this->id = $id;
+
+    try {
+      $sql = "SELECT name, address, sex, birth, phone FROM client WHERE id=:id";
+
+      $stmt = $getConnection->prepare($sql);
+      $stmt->bindParam(":id", $this->id);
+
+      if ($stmt->execute()) {
+        $result = $stmt->fetchAll();
+        return $result;
+      } else {
+        return false;
+      }
+    } catch (PDOException $error) {
+      echo "Error: " . $error->getMessage();
+    }
+  }
 }
