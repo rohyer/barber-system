@@ -21,6 +21,14 @@ switch ($finalUri["path"]) {
       $query = explode("=", $finalUri["query"])[1];
     }
     ClientController::deleteClient($query);
+    break;
+
+  case "/barbersystem/app/public/cliente/edita":
+    if ($finalUri["query"]) {
+      $query = explode("=", $finalUri["query"])[1];
+    }
+    ClientController::editClient($query);
+    break;
 
   case '/barbersystem/app/public/clientes':
     ClientController::readClient();
