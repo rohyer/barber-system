@@ -24,10 +24,10 @@ switch ($finalUri["path"]) {
     break;
 
   case "/barbersystem/app/public/cliente/edita":
-    if ($finalUri["query"]) {
+    if (isset($finalUri["query"])) {
       $query = explode("=", $finalUri["query"])[1];
+      ClientController::editClient($query);
     }
-    ClientController::editClient($query);
     break;
 
   case '/barbersystem/app/public/clientes':
