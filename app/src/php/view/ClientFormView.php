@@ -14,12 +14,21 @@
 
 <body>
 
+
+  <?php
+  // Verifica se o formulário irá criar ou editar dados
+  echo $formType;
+  ?>
+
   <?php include dirname(__DIR__) . "/view/components/nav.php"; ?>
 
   <div class="client__content">
     <h1 class="client__title">Clientes</h1>
 
-    <form action="cadastro" method="post" class="client__form">
+    <form method="post" class="client__form">
+      <?php if ($formType === "edit") : ?>
+        <input type="hidden" name="id" id="id" value="<?php echo $_GET["id"]; ?>" readonly>
+      <?php endif; ?>
       <div class="client__input-field">
         <label for="name">Nome:</label>
         <input type="text" id="name" name="name" value="<?php echo isset($result[0]) ? $result[0]["name"] : ""; ?>">
