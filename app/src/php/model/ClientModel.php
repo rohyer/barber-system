@@ -131,7 +131,7 @@ class ClientModel
     }
   }
 
-  public function editClient($id)
+  public function getClientToEdit($id)
   {
     $getConnection = $this->objConnection->getConnection();
 
@@ -151,6 +151,39 @@ class ClientModel
       }
     } catch (PDOException $error) {
       echo "Error: " . $error->getMessage();
+    }
+  }
+
+  public function editClient($data)
+  {
+    var_dump($data);
+    $this->id = intval($data["id"]);
+    $validateResult = $this->validateForm($data);
+
+    if ($validateResult !== true) {
+      return $validateResult;
+    } else {
+      $getConnection = $this->objConnection->getConnection();
+
+      try {
+        $sql = "UPDATE client SET name = :name, address = :address, sex = :sex, birth = :birth, phone = :phone WHERE id = :id LIMIT 1";
+
+        $stmt = $getConnection->prepare($sql);
+        $stmt->bindParam(":name", $this->name);
+        $stmt->bindParam(":address", $this->address);
+        $stmt->bindParam(":sex", $this->sex);
+        $stmt->bindParam(":birth", $this->birth);
+        $stmt->bindParam(":phone", $this->phone);
+        $stmt->bindParam(":id", $this->id);
+
+        if ($stmt->execute()) {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (PDOException $error) {
+        echo "Error: " . $error->getMessage();
+      }
     }
   }
 }
