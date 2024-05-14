@@ -14,7 +14,6 @@ class ClientController
       $objClientModel = new ClientModel();
       $result = $objClientModel->createClient($_POST);
 
-
       // Create ocorreu corretamente
       if ($result === true) {
         $result = ["name" => "", "sex" => "", "address" => "", "birth" => "", "phone" => ""];
@@ -23,8 +22,7 @@ class ClientController
       $result = ["name" => "", "sex" => "", "address" => "", "birth" => "", "phone" => ""];
     }
 
-    $formType = "create";
-    require dirname(__DIR__) . "/view/ClientFormView.php";
+    require dirname(__DIR__) . "/view/ClientCreateFormView.php";
   }
 
   public static function readClient()
@@ -57,6 +55,6 @@ class ClientController
     }
 
     $formType = "edit";
-    require_once dirname(__DIR__) . "/view/ClientFormView.php";
+    require_once dirname(__DIR__) . "/view/ClientEditFormView.php";
   }
 }
