@@ -17,7 +17,10 @@
   <?php include dirname(__DIR__) . "/view/components/nav.php"; ?>
 
   <div class="client__content">
-    <h1 class="client__title">Clientes</h1>
+    <div class="client__top">
+      <h1 class="client__title">Clientes</h1>
+      <a href="cliente/cadastro"><i class="fa-solid fa-plus"></i></a>
+    </div>
 
     <div class="client__data">
       <div class="client__options" style="display: none">
