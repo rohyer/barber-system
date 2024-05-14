@@ -16,7 +16,9 @@
   <?php include dirname(__DIR__) . "/view/components/nav.php"; ?>
 
   <div class="client__content">
-    <h1 class="client__title">Clientes</h1>
+    <div class="client__top">
+      <h1 class="client__title">Clientes</h1>
+    </div>
 
     <form action="cadastro" method="post" class="client__form">
       <div class="client__input-field">
