@@ -98,14 +98,16 @@ function validateInputs(data) {
 
 const form = document.querySelector(".client__form");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+if (form) {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  console.log("Rodou");
+    console.log("Rodou");
 
-  const formattedFormData = new FormData(form);
+    const formattedFormData = new FormData(form);
 
-  const result = validateInputs(formattedFormData);
+    const result = validateInputs(formattedFormData);
 
-  if (!result) postData(formattedFormData);
-});
+    if (!result) postData(formattedFormData);
+  });
+}
