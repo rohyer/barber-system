@@ -156,7 +156,6 @@ class ClientModel
 
   public function editClient($data)
   {
-    var_dump($data);
     $this->id = intval($data["id"]);
     $validateResult = $this->validateForm($data);
 
