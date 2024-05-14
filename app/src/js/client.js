@@ -58,7 +58,7 @@ function validateInputs(data) {
 
   let error = false;
 
-  if (!/^[a-zA-Z][a-zA-Z ]+$/.test(data.get("name"))) {
+  if (!/^[a-zA-Z][a-zA-Z., ]+$/.test(data.get("name"))) {
     errorTags[0].textContent = "Prencha o campo corretamente";
     error = true;
   } else {
@@ -74,7 +74,7 @@ function validateInputs(data) {
   } else {
     errorTags[1].textContent = "";
   }
-  if (!/^[a-zA-Z][a-zA-Z ]+$/.test(data.get("address"))) {
+  if (!/^[a-zA-Z][a-zA-Z0-9., ]+$/.test(data.get("address"))) {
     errorTags[2].textContent = "Prencha o campo corretamente";
     error = true;
   } else {
