@@ -43,13 +43,13 @@ class ClientController
     }
   }
 
-  public static function editClient($id = false)
+  public static function editClient($id)
   {
     $objClientModel = new ClientModel();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $objClientModel->editClient($_POST);
-      header("Location: /barbersystem/app/public/clientes");
+      $result = $objClientModel->getClientToEdit($id);
     } else {
       $result = $objClientModel->getClientToEdit($id);
     }

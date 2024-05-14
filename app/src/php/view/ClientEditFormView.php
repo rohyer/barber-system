@@ -21,7 +21,7 @@
       <h1 class="client__title">Clientes</h1>
     </div>
 
-    <form action="edita" method="post" class="client__form">
+    <form action="edita?id=<?php echo $id ?>" method="post" class="client__form">
       <input type="hidden" name="id" id="id" value="<?php echo $_GET["id"]; ?>" readonly>
       <div class="client__input-field">
         <label for="name">Nome:</label>
