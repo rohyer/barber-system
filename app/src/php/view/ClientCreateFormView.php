@@ -13,64 +13,53 @@
 </head>
 
 <body>
-
-
-  <?php
-  // Verifica se o formulário irá criar ou editar dados
-  echo $formType;
-  ?>
-
   <?php include dirname(__DIR__) . "/view/components/nav.php"; ?>
 
   <div class="client__content">
     <h1 class="client__title">Clientes</h1>
 
-    <form method="post" class="client__form">
-      <?php if ($formType === "edit") : ?>
-        <input type="hidden" name="id" id="id" value="<?php echo $_GET["id"]; ?>" readonly>
-      <?php endif; ?>
+    <form action="cadastro" method="post" class="client__form">
       <div class="client__input-field">
         <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" value="<?php echo isset($result[0]) ? $result[0]["name"] : ""; ?>">
+        <input type="text" id="name" name="name">
         <div class="bar"></div>
-        <span><?php echo isset($result["name"]) ? $result["name"] : ""; ?></span>
+        <span class="client__error"><?php echo isset($result["name"]) ? $result["name"] : ""; ?></span>
       </div>
 
       <div class="client__input-field">
         <label for="sex">Sexo:</label>
         <div class="client__input-field--group">
           <select name="sex" id="sex">
-            <option value="M" <?php echo (isset($result[0]["sex"]) && $result[0]["sex"] === "M") ? "selected" : ""; ?>>Masculino</option>
-            <option value="F" <?php echo (isset($result[0]["sex"]) && $result[0]["sex"] === "F") ? "selected" : ""; ?>>Feminino</option>
-            <option value="Outro" <?php echo (isset($result[0]["sex"]) && $result[0]["sex"] === "Outro") ? "selected" : ""; ?>>Outro</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            <option value="Outro">Outro</option>
           </select>
           <div class="bar"></div>
         </div>
-        <span><?php echo isset($result["sex"]) ? $result["sex"] : ""; ?></span>
+        <span class="client__error"><?php echo isset($result["sex"]) ? $result["sex"] : ""; ?></span>
       </div>
 
       <div class="client__input-field">
         <label for="address">Endereço:</label>
-        <input type="text" id="address" name="address" value="<?php echo isset($result[0]) ? $result[0]["address"] : ""; ?>">
+        <input type="text" id="address" name="address">
         <div class="bar"></div>
-        <span><?php echo isset($result["address"]) ? $result["address"] : ""; ?></span>
+        <span class="client__error"><?php echo isset($result["address"]) ? $result["address"] : ""; ?></span>
       </div>
 
       <div class="client__input-field">
         <label for="input-birth">Data de Nascimento:</label>
         <div class="client__input-field--group">
-
-          <input type="date" name="birth" id="input-birth" value="<?php echo isset($result[0]) ? $result[0]["birth"] : ""; ?>">
+          <input type="date" name="birth" id="input-birth">
           <div class="bar"></div>
         </div>
-        <span><?php echo isset($result["birth"]) ? $result["birth"] : ""; ?></span>
+        <span class="client__error"><?php echo isset($result["birth"]) ? $result["birth"] : ""; ?></span>
       </div>
 
       <div class="client__input-field">
         <label for="input-phone">Telefone:</label>
-        <input type="text" maxlength="15" id="input-phone" name="phone" value="<?php echo isset($result[0]) ? $result[0]["phone"] : ""; ?>">
+        <input type="text" maxlength="15" id="input-phone" name="phone">
         <div class="bar"></div>
-        <span><?php echo isset($result["phone"]) ? $result["phone"] : ""; ?></span>
+        <span class="client__error"><?php echo isset($result["phone"]) ? $result["phone"] : ""; ?></span>
       </div>
 
       <div class="client__input-field">
