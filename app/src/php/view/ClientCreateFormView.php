@@ -20,7 +20,7 @@
       <h1 class="client__title">Clientes</h1>
     </div>
 
-    <form action="cadastro" method="post" class="client__form">
+    <form action="cadastro" method="post" class="client__form" id="client-form">
       <div class="client__input-field">
         <label for="name">Nome:</label>
         <input type="text" id="name" name="name">

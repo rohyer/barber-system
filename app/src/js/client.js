@@ -96,13 +96,11 @@ function validateInputs(data) {
   return error;
 }
 
-const form = document.querySelector(".client__form");
+const form = document.getElementById("client-form");
 
 if (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-
-    console.log("Rodou");
 
     const formattedFormData = new FormData(form);
 
