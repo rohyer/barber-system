@@ -43,18 +43,17 @@ class ClientController
     }
   }
 
-  public static function editClient($id)
+  public static function editClient($id = false)
   {
     $objClientModel = new ClientModel();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $result = $objClientModel->editClient($_POST);
+      $objClientModel->editClient($_POST);
       header("Location: /barbersystem/app/public/clientes");
     } else {
       $result = $objClientModel->getClientToEdit($id);
     }
 
-    $formType = "edit";
     require_once dirname(__DIR__) . "/view/ClientEditFormView.php";
   }
 }
