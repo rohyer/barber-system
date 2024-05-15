@@ -12,6 +12,8 @@ switch ($finalUri["path"]) {
     AdminController::getHome();
     break;
 
+
+    // Clientes
   case '/barbersystem/app/public/cliente/cadastro':
     ClientController::createClient();
     break;
@@ -34,8 +36,14 @@ switch ($finalUri["path"]) {
     ClientController::readClient();
     break;
 
+    // Colaboradores 
   case '/barbersystem/app/public/colaboradores':
     EmployeeController::readEmployee();
+    break;
+
+  case '/barbersystem/app/public/colaborador/cadastro':
+    EmployeeController::createEmployee();
+    break;
 
   default:
     # code...
