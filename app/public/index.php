@@ -45,6 +45,19 @@ switch ($finalUri["path"]) {
     EmployeeController::createEmployee();
     break;
 
+  case '/barbersystem/app/public/colaborador/deleta':
+    if (isset($finalUri["query"])) {
+      $query = explode("=", $finalUri["query"])[1];
+      EmployeeController::deleteEmployee($query);
+    }
+
+  case "/barbersystem/app/public/colaborador/edita":
+    if (isset($finalUri["query"])) {
+      $query = explode("=", $finalUri["query"])[1];
+      ClientController::editClient($query);
+    }
+    break;
+
   default:
     # code...
     break;
