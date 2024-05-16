@@ -9,7 +9,6 @@ class EmployeeModel
   private $sex;
   private $birth;
   private $phone;
-  private $salary;
 
   public function __construct()
   {
