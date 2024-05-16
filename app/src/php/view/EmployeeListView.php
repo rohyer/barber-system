@@ -33,7 +33,7 @@
           <span>Nome</span>
           <span>Contato</span>
           <span>Idade</span>
-          <span>Salário</span>
+          <span>Sexo</span>
         </div>
 
         <?php
