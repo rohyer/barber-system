@@ -139,7 +139,7 @@ class EmployeeModel
     $this->id = $id;
 
     try {
-      $sql = "SELECT FROM employee WHERE id = :id";
+      $sql = "SELECT name, sex, address, birth, phone FROM employee WHERE id = :id";
 
       $stmt = $getConnection->prepare($sql);
       $stmt->bindParam(":id", $this->id);
@@ -152,6 +152,38 @@ class EmployeeModel
       }
     } catch (PDOException $error) {
       echo "Error: " . $error->getMessage();
+    }
+  }
+
+  public function editClient($data)
+  {
+    $this->id = intval($data["id"]);
+    $validateResult = $this->validateForm($data);
+
+    if ($validateResult !== true) {
+      return $validateResult;
+    } else {
+      $getConnection = $this->objConnection->getConnection();
+
+      try {
+        $sql = "UPDATE employee SET name = :name, address = :address, sex = :sex, birth = :birth, phone = :phone WHERE id = :id LIMIT 1";
+
+        $stmt = $getConnection->prepare($sql);
+        $stmt->bindParam(":name", $this->name);
+        $stmt->bindParam(":address", $this->address);
+        $stmt->bindParam(":sex", $this->sex);
+        $stmt->bindParam(":birth", $this->birth);
+        $stmt->bindParam(":phone", $this->phone);
+        $stmt->bindParam(":id", $this->id);
+
+        if ($stmt->execute()) {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (PDOException $error) {
+        echo "Error: " . $error->getMessage();
+      }
     }
   }
 }
