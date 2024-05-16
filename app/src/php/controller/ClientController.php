@@ -12,7 +12,7 @@ class ClientController
   {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $objClientModel = new ClientModel();
-      $result = $objClientModel->createClient($_POST);
+      $result = $objClientModel->create($_POST);
 
       // Create ocorreu corretamente
       if ($result === true) {
@@ -28,7 +28,7 @@ class ClientController
   public static function readClient()
   {
     $objClientModel = new ClientModel();
-    $result = $objClientModel->readClient();
+    $result = $objClientModel->read();
 
     require dirname(__DIR__) . "/view/ClientListView.php";
   }
@@ -36,7 +36,7 @@ class ClientController
   public static function deleteClient($id)
   {
     $objClientModel = new ClientModel();
-    $result = $objClientModel->deleteClient($id);
+    $result = $objClientModel->delete($id);
 
     if ($result) {
       header("Location: /barbersystem/app/public/clientes");
@@ -48,10 +48,10 @@ class ClientController
     $objClientModel = new ClientModel();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $objClientModel->editClient($_POST);
-      $result = $objClientModel->getClientToEdit($id);
+      $objClientModel->edit($_POST);
+      $result = $objClientModel->getUserToEdit($id);
     } else {
-      $result = $objClientModel->getClientToEdit($id);
+      $result = $objClientModel->getUserToEdit($id);
     }
 
     require_once dirname(__DIR__) . "/view/ClientEditFormView.php";
