@@ -54,7 +54,7 @@ switch ($finalUri["path"]) {
   case "/barbersystem/app/public/colaborador/edita":
     if (isset($finalUri["query"])) {
       $query = explode("=", $finalUri["query"])[1];
-      ClientController::editClient($query);
+      EmployeeController::editEmployee($query);
     }
     break;
 
