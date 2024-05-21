@@ -1,9 +1,11 @@
 <?php
 
-require_once dirname(__DIR__) . "/src/php/controller/ClientController.php";
-require_once dirname(__DIR__) . "/src/php/controller/AdminController.php";
-require_once dirname(__DIR__) . "/src/php/controller/EmployeeController.php";
-require_once dirname(__DIR__) . "/src/php/controller/ServiceController.php";
+use Guilherme\Barbersystem\controller\AdminController;
+use Guilherme\Barbersystem\controller\ClientController;
+use Guilherme\Barbersystem\controller\EmployeeController;
+use Guilherme\Barbersystem\controller\ServiceController;
+
+require_once $_SERVER["DOCUMENT_ROOT"] . "/barbersystem/app/vendor/autoload.php";
 
 $uri = $_SERVER["REQUEST_URI"];
 $finalUri = parse_url($uri);
