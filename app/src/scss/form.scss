@@ -1,0 +1,111 @@
+// ClientFormView
+
+.form {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+  }
+
+  &__input-field {
+    margin-bottom: 15px;
+
+    label {
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      font-style: normal;
+      color: #333;
+    }
+
+    input[type="text"] {
+      height: 35px;
+      width: 100%;
+      margin-bottom: 10px;
+      border: none;
+      outline: none;
+      padding: 0 10px;
+      margin: 0;
+
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      font-style: normal;
+      color: #333;
+    }
+
+    select {
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      padding: 15px;
+    }
+
+    input[type="date"] {
+      padding: 15px;
+      font-family: "Montserrat", sans-serif;
+      color: #333;
+      font-size: 16px;
+      border: none;
+      outline: none;
+    }
+
+    input[type="submit"] {
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      font-style: normal;
+      width: 200px;
+      height: 40px;
+      background-color: transparent;
+      border: 2px solid #333;
+      transition: all 0.25s;
+
+      &:hover {
+        background-color: #eee;
+      }
+      &:focus {
+        background-color: #ddd;
+      }
+    }
+
+    .bar {
+      position: relative;
+      width: 100%;
+      border-bottom: 2px solid #ccc;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 2px;
+        width: 0px;
+        background-color: #000;
+        transition: all 0.25s;
+      }
+    }
+
+    input:focus ~ .bar {
+      &:after {
+        width: 100%;
+      }
+    }
+
+    span {
+      font-family: "Open Sans", sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      font-style: normal;
+      color: #ff0000;
+    }
+  }
+
+  &__input-field--group {
+    width: fit-content;
+  }
+}
