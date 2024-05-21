@@ -1,7 +1,10 @@
 <?php
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/barbersystem/app/vendor/autoload.php";
+namespace Guilherme\Barbersystem\controller;
+
 use Guilherme\Barbersystem\model\ClientModel;
+
+require_once $_SERVER["DOCUMENT_ROOT"] . "/barbersystem/app/vendor/autoload.php";
 
 class ClientController
 {

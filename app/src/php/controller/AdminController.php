@@ -1,5 +1,7 @@
 <?php
 
+namespace Guilherme\Barbersystem\controller;
+
 class AdminController {
 
   public static function getHome() {

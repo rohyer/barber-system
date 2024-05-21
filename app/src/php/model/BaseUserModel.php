@@ -1,5 +1,9 @@
 <?php
-require_once dirname(__DIR__) . "/model/ConnectionModel.php";
+namespace Guilherme\Barbersystem\model;
+
+use Guilherme\Barbersystem\model\ConnectionModel;
+
+require_once $_SERVER["DOCUMENT_ROOT"] . "/barbersystem/app/vendor/autoload.php";
 
 abstract class BaseUserModel
 {
