@@ -1,4 +1,6 @@
 <?php
+namespace Guilherme\Barbersystem\model;
+use \PDO;
 
 class ConnectionModel {
   private $dsn;

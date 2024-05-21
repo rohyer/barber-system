@@ -1,5 +1,7 @@
 <?php
-require_once dirname(__DIR__) . "/model/ClientModel.php";
+
+require_once $_SERVER["DOCUMENT_ROOT"] . "/barbersystem/app/vendor/autoload.php";
+use Guilherme\Barbersystem\model\ClientModel;
 
 class ClientController
 {
