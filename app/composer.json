@@ -3,7 +3,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Guilherme\\Barbersystem\\": "src/"
+            "Guilherme\\Barbersystem\\": "src/php/"
         }
     },
     "authors": [
