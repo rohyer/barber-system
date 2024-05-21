@@ -25,6 +25,11 @@
         <div><i class="fa-solid fa-handshake"></i></div>Colaboradores
       </a>
     </li>
+    <li>
+      <a href="/barbersystem/app/public/servicos" class="nav__link">
+        <div><i class="fa-solid fa-scissors"></i></div>Serviços
+      </a>
+    </li>
   </ul>
 
   <a href="" class="nav__logout">
