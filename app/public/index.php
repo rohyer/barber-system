@@ -51,6 +51,7 @@ switch ($finalUri["path"]) {
       $query = explode("=", $finalUri["query"])[1];
       EmployeeController::deleteEmployee($query);
     }
+    break;
 
   case "/barbersystem/app/public/colaborador/edita":
     if (isset($finalUri["query"])) {
@@ -61,6 +62,22 @@ switch ($finalUri["path"]) {
 
   case "/barbersystem/app/public/servicos":
     ServiceController::readService();
+    break;
+
+  case "/barbersystem/app/public/servico/cadastro":
+    ServiceController::createService();
+    break;
+
+  case "/barbersystem/app/public/servico/deleta":
+    if (isset($finalUri["query"])) {
+      $query = explode("=", $finalUri["query"])[1];
+      ServiceController::deleteService($query);
+    }
+    break;
+    
+  case "/barbersystem/app/public/servico/edita":
+    ServiceController::editService();
+    break;
 
   default:
     # code...
