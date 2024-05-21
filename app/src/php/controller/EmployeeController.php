@@ -7,7 +7,7 @@ class EmployeeController
   {
 
     $objEmployeeModel = new EmployeeModel();
-    $result = $objEmployeeModel->read();
+    $result = $objEmployeeModel->read("employee");
 
     include dirname(__DIR__) . "/view/EmployeeListView.php";
   }
@@ -16,7 +16,7 @@ class EmployeeController
   {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $objEmployeeModel = new EmployeeModel();
-      $result = $objEmployeeModel->createEmployee($_POST);
+      $result = $objEmployeeModel->create($_POST, "employee");
 
       // Create ocorreu corretamente
       if ($result === true) {
@@ -32,7 +32,7 @@ class EmployeeController
   public static function deleteEmployee($id)
   {
     $objEmployeeModel = new EmployeeModel();
-    $result = $objEmployeeModel->deleteEmployee($id);
+    $result = $objEmployeeModel->delete($id, "employee");
 
     if ($result) {
       header("Location: /barbersystem/app/public/colaboradores");
@@ -44,10 +44,10 @@ class EmployeeController
     $objEmployeeModel = new EmployeeModel();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $objEmployeeModel->editClient($_POST);
-      $result = $objEmployeeModel->getEmployeeToEdit($id);
+      $objEmployeeModel->edit($_POST, "employee");
+      $result = $objEmployeeModel->getUserToEdit($id, "employee");
     } else {
-      $result = $objEmployeeModel->getEmployeeToEdit($id);
+      $result = $objEmployeeModel->getUserToEdit($id, "employee");
     }
 
     require_once dirname(__DIR__) . "/view/EmployeeEditFormView.php";
