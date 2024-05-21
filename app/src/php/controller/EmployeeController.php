@@ -1,5 +1,10 @@
 <?php
-require_once dirname(__DIR__) . "/model/EmployeeModel.php";
+
+namespace Guilherme\Barbersystem\controller;
+
+use Guilherme\Barbersystem\model\EmployeeModel;
+
+require_once $_SERVER["DOCUMENT_ROOT"] . "/barbersystem/app/vendor/autoload.php";
 
 class EmployeeController
 {

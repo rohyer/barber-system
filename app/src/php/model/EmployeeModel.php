@@ -1,5 +1,8 @@
 <?php
+namespace Guilherme\Barbersystem\model;
 
-require_once dirname(__DIR__) . "/model/BaseUserModel.php";
+use Guilherme\Barbersystem\model\BaseUserModel;
+
+require_once $_SERVER["DOCUMENT_ROOT"] . "/barbersystem/app/vendor/autoload.php";
 
 class EmployeeModel extends BaseUserModel {}
