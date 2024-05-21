@@ -16,20 +16,20 @@
 
   <?php include dirname(__DIR__) . "/view/components/nav.php"; ?>
 
-  <div class="client__content">
-    <div class="client__top">
-      <h1 class="client__title">Colaboradores</h1>
+  <div class="general__content">
+    <div class="general__top">
+      <h1 class="general__title">Colaboradores</h1>
       <a href="colaborador/cadastro"><i class="fa-solid fa-plus"></i></a>
     </div>
 
-    <div class="client__data">
-      <div class="client__options" style="display: none">
-        <span class="client__categories" data-state="true">Ativos</span>
-        <span class="client__categories" data-state="false">Desativos</span>
+    <div class="list__data">
+      <div class="list__options" style="display: none">
+        <span class="list__categories" data-state="true">Ativos</span>
+        <span class="list__categories" data-state="false">Desativos</span>
       </div>
 
-      <div class="client__list">
-        <div class="client__head-row">
+      <div class="list__list">
+        <div class="list__head-row">
           <span>Nome</span>
           <span>Contato</span>
           <span>Idade</span>
@@ -43,18 +43,18 @@
           $age = $now->diff($date);
         ?>
 
-          <div class='client__row'>
+          <div class='list__row'>
             <a href='#'></a>
             <span><?php echo $r["name"] ?></span>
             <span><?php echo $r["phone"] ?></span>
             <span><?php echo $age->y ?></span>
             <span><?php echo $r["sex"] ?> </span>
-            <span class="client__edit">
+            <span class="list__edit">
               <a href="colaborador/edita?id=<?php echo $r["id"] ?>">
                 <i class="fa-solid fa-pen-to-square"></i>
               </a>
             </span>
-            <span class="client__delete">
+            <span class="list__delete">
               <a href="colaborador/deleta?id=<?php echo $r["id"] ?>">
                 <i class='fa-solid fa-trash'></i>
               </a>
