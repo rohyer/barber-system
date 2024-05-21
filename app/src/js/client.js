@@ -54,7 +54,7 @@ async function postData(formattedFormData) {
 }
 
 function validateInputs(data) {
-  const errorTags = document.querySelectorAll(".client__error");
+  const errorTags = document.querySelectorAll(".form__error");
 
   let error = false;
 
