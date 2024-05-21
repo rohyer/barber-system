@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . "/model/ConnectionModel.php";
 
-class BaseUserModel
+abstract class BaseUserModel
 {
   protected $objConnection;
   protected $id;
@@ -62,7 +62,7 @@ class BaseUserModel
     }
   }
 
-  public function create($data)
+  public function create($data, $table)
   {
     $validateResult = $this->validateForm($data);
 
@@ -72,7 +72,7 @@ class BaseUserModel
       $getConnection = $this->objConnection->getConnection();
 
       try {
-        $sql = "INSERT INTO client (name, address, sex, birth, phone) values (:name, :address, :sex, :birth, :phone)";
+        $sql = "INSERT INTO " . $table . " (name, address, sex, birth, phone) values (:name, :address, :sex, :birth, :phone)";
 
         $stmt = $getConnection->prepare($sql);
         $stmt->bindParam(":name", $this->name);
@@ -92,12 +92,12 @@ class BaseUserModel
     }
   }
 
-  public function read()
+  public function read($table)
   {
     $getConnection = $this->objConnection->getConnection();
 
     try {
-      $sql = "Select id, name, birth, sex, phone FROM client";
+      $sql = "Select id, name, birth, sex, phone FROM " . $table;
 
       $stmt = $getConnection->prepare($sql);
 
@@ -110,14 +110,14 @@ class BaseUserModel
     }
   }
 
-  public function delete($id)
+  public function delete($id, $table)
   {
     $getConnection = $this->objConnection->getConnection();
 
     $this->id = $id;
 
     try {
-      $sql = "DELETE FROM client WHERE id = :id";
+      $sql = "DELETE FROM " . $table . " WHERE id = :id";
 
       $stmt = $getConnection->prepare($sql);
       $stmt->bindParam(":id", $this->id);
@@ -132,14 +132,14 @@ class BaseUserModel
     }
   }
 
-  public function getUserToEdit($id)
+  public function getUserToEdit($id, $table)
   {
     $getConnection = $this->objConnection->getConnection();
 
     $this->id = $id;
 
     try {
-      $sql = "SELECT name, address, sex, birth, phone FROM client WHERE id=:id";
+      $sql = "SELECT name, address, sex, birth, phone FROM " . $table . " WHERE id=:id";
 
       $stmt = $getConnection->prepare($sql);
       $stmt->bindParam(":id", $this->id);
@@ -155,7 +155,7 @@ class BaseUserModel
     }
   }
 
-  public function edit($data)
+  public function edit($data, $table)
   {
     $this->id = intval($data["id"]);
     $validateResult = $this->validateForm($data);
@@ -166,7 +166,7 @@ class BaseUserModel
       $getConnection = $this->objConnection->getConnection();
 
       try {
-        $sql = "UPDATE client SET name = :name, address = :address, sex = :sex, birth = :birth, phone = :phone WHERE id = :id LIMIT 1";
+        $sql = "UPDATE " . $table . " SET name = :name, address = :address, sex = :sex, birth = :birth, phone = :phone WHERE id = :id LIMIT 1";
 
         $stmt = $getConnection->prepare($sql);
         $stmt->bindParam(":name", $this->name);
