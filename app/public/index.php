@@ -3,6 +3,7 @@
 require_once dirname(__DIR__) . "/src/php/controller/ClientController.php";
 require_once dirname(__DIR__) . "/src/php/controller/AdminController.php";
 require_once dirname(__DIR__) . "/src/php/controller/EmployeeController.php";
+require_once dirname(__DIR__) . "/src/php/controller/ServiceController.php";
 
 $uri = $_SERVER["REQUEST_URI"];
 $finalUri = parse_url($uri);
@@ -57,6 +58,9 @@ switch ($finalUri["path"]) {
       EmployeeController::editEmployee($query);
     }
     break;
+
+  case "/barbersystem/app/public/servicos":
+    ServiceController::readService();
 
   default:
     # code...
