@@ -1,0 +1,56 @@
+.card {
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__card {
+    width: 200px;
+    height: auto;
+    background-color: #EFEFEF;
+    box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    padding: 20px 15px;
+    margin: 10px;
+  }
+
+  &__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    color: #333;
+    margin: 0px 0px 10px;
+  }
+
+  &__value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    color: #333;
+  }
+
+  &__options {
+    display: flex;
+  }
+
+  &__delete > a,
+  &__edit > a {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    color: #333;
+    z-index: 9;
+    transition: all 0.25s;
+
+    &:hover {
+      background-color: #fff;
+    }
+  }
+}
