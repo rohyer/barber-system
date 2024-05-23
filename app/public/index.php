@@ -76,9 +76,12 @@ switch ($finalUri["path"]) {
       ServiceController::deleteService($query);
     }
     break;
-    
+
   case "/barbersystem/app/public/servico/edita":
-    ServiceController::editService();
+    if (isset($finalUri["query"])) {
+      $query = explode("=", $finalUri["query"])[1];
+      ServiceController::editService($query);
+    }
     break;
 
   default:
