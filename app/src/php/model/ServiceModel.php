@@ -1,19 +1,20 @@
 <?php
+
 namespace Guilherme\Barbersystem\model;
 
 require_once dirname(__DIR__) . "/model/ConnectionModel.php";
 
-class ServiceModel {
+class ServiceModel
+{
   private $id;
   private $name;
   private $value;
   private $objConnection;
 
-  public function __construct() {
+  public function __construct()
+  {
     $this->objConnection = new ConnectionModel();
   }
-
-
 
   public function testInput($data)
   {
@@ -45,7 +46,8 @@ class ServiceModel {
     }
   }
 
-  public function read() {
+  public function read()
+  {
     $getConnection = $this->objConnection->getConnection();
 
     try {
@@ -62,41 +64,42 @@ class ServiceModel {
     }
   }
 
-  public function create($data) {
+  public function create($data)
+  {
     $validateResult = $this->validateForm($data);
-    
+
     if ($validateResult !== true) {
       return $validateResult;
     } else {
       $getConnection = $this->objConnection->getConnection();
-  
+
       try {
         $sql = "INSERT INTO service (name, value) values (:name, :value)";
-  
+
         $stmt = $getConnection->prepare($sql);
         $stmt->bindParam(":name", $this->name);
         $stmt->bindParam(":value", $this->value);
-  
+
         if ($stmt->execute()) {
           return true;
         } else {
           return false;
         }
-  
-      } catch(PDOException $error) {
+      } catch (PDOException $error) {
         echo "Error: " . $error->getMessage();
       }
     }
   }
-  
-  public function delete($id) {
+
+  public function delete($id)
+  {
     $getConnection = $this->objConnection->getConnection();
 
     $this->id = $id;
 
     try {
       $sql = "DELETE FROM service WHERE id = :id";
-      
+
       $stmt = $getConnection->prepare($sql);
       $stmt->bindParam(":id", $this->id);
 
@@ -105,8 +108,62 @@ class ServiceModel {
       } else {
         return false;
       }
-    } catch(PDOException $error) {
+    } catch (PDOException $error) {
       echo "Error: " . $error->getMessage();
+    }
+  }
+
+  public function getServiceToEdit($id)
+  {
+    $getConnection = $this->objConnection->getConnection();
+
+    $this->id = $id;
+
+    try {
+      $sql = "SELECT id, name, value from service where id = :id";
+
+      $stmt = $getConnection->prepare($sql);
+
+      $stmt->bindParam(":id", $this->id);
+
+      if ($stmt->execute()) {
+        $result = $stmt->fetchAll();
+        return $result;
+      } else {
+        return false;
+      }
+    } catch (PDOException $error) {
+      echo "Error: " . $error->getMessage();
+    }
+  }
+
+  public function edit($data)
+  {
+    $this->id = intval($data["id"]);
+    $validateResult = $this->validateForm($data);
+
+    if ($validateResult !== true) {
+      return $validateResult;
+    } else {
+      $getConnection = $this->objConnection->getConnection();
+
+      try {
+        $sql = "UPDATE service SET name = :name, value = :value WHERE id = :id LIMIT 1";
+
+        $stmt = $getConnection->prepare($sql);
+
+        $stmt->bindParam(":name", $this->name);
+        $stmt->bindParam(":value", $this->value);
+        $stmt->bindParam(":id", $this->id);
+
+        if ($stmt->execute()) {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (PDOException $error) {
+        echo "Error: " . $error->getMessage();
+      }
     }
   }
 }
