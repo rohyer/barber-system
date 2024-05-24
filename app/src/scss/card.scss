@@ -7,15 +7,15 @@
   &__card {
     width: 200px;
     height: auto;
-    background-color: #EFEFEF;
-    box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
+    background-color: #efefef;
+    box-shadow: 0px 0px 10px rgba(180, 180, 180, 0.7);
     border-radius: 6px;
     padding: 20px 15px;
     margin: 10px;
   }
 
   &__title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 18px;
     font-weight: 500;
     font-style: normal;
@@ -24,7 +24,7 @@
   }
 
   &__value {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-weight: 500;
     font-style: normal;
