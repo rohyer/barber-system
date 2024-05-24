@@ -32,9 +32,11 @@
     </li>
   </ul>
 
-  <a href="" class="nav__logout">
-    <div><i class="fa-solid fa-right-from-bracket"></i></div>Sair
-  </a>
+  <div class="nav__logout">
+    <a href="">
+      <div><i class="fa-solid fa-right-from-bracket"></i></div>Sair
+    </a>
+  </div>
 </nav>
 
 <script type="module" src="../dist/js/all.js"></script>
