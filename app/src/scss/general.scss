@@ -16,12 +16,16 @@
       transition: all 0.25s;
 
       &:hover {
-        background-color: #eee;
-        transform: rotate(90deg);
+        background-color: #00234c;
+
+        i {
+          color: #fff;
+        }
       }
 
       i {
         font-size: 24px;
+        transition: all 0.25s;
       }
     }
   }
