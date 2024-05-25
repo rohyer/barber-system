@@ -70,6 +70,13 @@
     margin-bottom: 10px;
     transition: all 0.25s;
 
+    @media (min-width: 992px) {
+      &:hover {
+        margin-left: 10px;
+        margin-right: -10px;
+      }
+    }
+
     &:hover {
       background-color: #eeeeee;
     }
@@ -119,8 +126,7 @@
     transition: all 0.25s;
 
     &:hover {
-      background-color: #fff;
+      background-color: #f6d044;
     }
   }
 }
-
