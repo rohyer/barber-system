@@ -16,6 +16,11 @@
       </a>
     </li>
     <li>
+      <a href="/barbersystem/app/public/atendimentos" class="nav__link">
+        <div><i class="fa-solid fa-star"></i></div>Atendimentos
+      </a>
+    </li>
+    <li>
       <a href="/barbersystem/app/public/clientes" class="nav__link">
         <div><i class="fa-solid fa-user-group"></i></div>Clientes
       </a>
