@@ -4,6 +4,7 @@ use Guilherme\Barbersystem\controller\AdminController;
 use Guilherme\Barbersystem\controller\ClientController;
 use Guilherme\Barbersystem\controller\EmployeeController;
 use Guilherme\Barbersystem\controller\ServiceController;
+use Guilherme\Barbersystem\controller\CustomerServiceController;
 
 require_once $_SERVER["DOCUMENT_ROOT"] . "/barbersystem/app/vendor/autoload.php";
 
@@ -15,6 +16,9 @@ switch ($finalUri["path"]) {
     AdminController::getHome();
     break;
 
+  case '/barbersystem/app/public/atendimentos':
+    CustomerServiceController::readCustomerService();
+    break;
 
     // Clientes
   case '/barbersystem/app/public/cliente/cadastro':
