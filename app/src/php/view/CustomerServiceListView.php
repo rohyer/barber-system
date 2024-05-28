@@ -46,12 +46,12 @@
             <span><?php echo $r["id_service"] ?></span>
             <span><?php echo $r["id_client"] ?> </span>
             <span class="list__edit">
-              <a href="cliente/edita?id=<?php echo $r["id"] ?>">
+              <a href="atendimento/edita?id=<?php echo $r["id"] ?>">
                 <i class="fa-solid fa-pen-to-square"></i>
               </a>
             </span>
             <span class="list__delete">
-              <a href="cliente/deleta?id=<?php echo $r["id"] ?>">
+              <a href="atendimento/deleta?id=<?php echo $r["id"] ?>">
                 <i class='fa-solid fa-trash'></i>
               </a>
             </span>
