@@ -3,6 +3,7 @@
 namespace Guilherme\Barbersystem\model;
 
 use Guilherme\Barbersystem\model\ConnectionModel;
+use PDOException;
 
 require_once $_SERVER["DOCUMENT_ROOT"] . "/barbersystem/app/vendor/autoload.php";
 
@@ -32,6 +33,28 @@ class CustomerServiceModel
       if ($stmt->execute()) {
         $result = $stmt->fetchAll();
         return $result;
+      } else {
+        return false;
+      }
+    } catch (PDOException $error) {
+      echo "Error: " . $error->getMessage();
+    }
+  }
+
+  public function delete($id)
+  {
+    $getConnection = $this->objConnection->getConnection();
+
+    $this->id = $id;
+
+    try {
+      $sql = "DELETE FROM service WHERE id = :id";
+
+      $stmt = $getConnection->prepare($sql);
+      $stmt->bindParam(":id", $this->id);
+
+      if ($stmt->execute()) {
+        return true;
       } else {
         return false;
       }
