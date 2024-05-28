@@ -15,4 +15,14 @@ class CustomerServiceController
 
     require_once dirname(__DIR__) . "/view/CustomerServiceListView.php";
   }
+
+  public static function deleteCustomerService($id)
+  {
+    $objCustomerService = new CustomerServiceModel();
+    $result = $objCustomerService->delete($id);
+
+    if ($result) {
+      header("Location: /barbersystem/app/public/atendimentos");
+    }
+  }
 }
