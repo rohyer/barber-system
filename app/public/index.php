@@ -24,7 +24,7 @@ switch ($finalUri["path"]) {
     if ($finalUri["query"]) {
       $query = explode("=", $finalUri["query"])[1];
     }
-    CustomerController::deleteCustomerService($query);
+    CustomerServiceController::deleteCustomerService($query);
     break;
 
     // Clientes
