@@ -48,7 +48,7 @@ class CustomerServiceModel
     $this->id = $id;
 
     try {
-      $sql = "DELETE FROM service WHERE id = :id";
+      $sql = "DELETE FROM customer_service WHERE id = :id";
 
       $stmt = $getConnection->prepare($sql);
       $stmt->bindParam(":id", $this->id);
