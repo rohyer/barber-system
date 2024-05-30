@@ -21,12 +21,81 @@ class CustomerServiceModel
     $this->objConnection = new ConnectionModel();
   }
 
+  public function testInput($data)
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
+  public function validateForm($data)
+  {
+    $dateError = $timeError = $clientError = $serviceError = "";
+
+    if (empty($data["date"])) {
+      $dateError = "Campo data necessário";
+    } else {
+      $this->date = $this->testInput($data["date"]);
+    }
+    if (empty($data["time"])) {
+      $timeError = "Campo horário necessário";
+    } else {
+      $this->time = $this->testInput($data["time"]);
+    }
+    if (empty($data["client"])) {
+      $clientError = "Campo cliente necessário";
+    } else {
+      $this->idClient = $this->testInput($data["client"]);
+    }
+    if (empty($data["service"])) {
+      $serviceError = "Campo serviço necessário";
+    } else {
+      $this->idService = $this->testInput($data["service"]);
+    }
+
+    if ($dateError || $timeError || $clientError || $serviceError) {
+      return ["date" => $dateError, "time" => $timeError, "client" => $clientError, "service" => $serviceError];
+    } else {
+      return true;
+    }
+  }
+
+  public function create($data)
+  {
+    $validateResult = $this->validateForm($data);
+
+    if ($validateResult !== true) {
+      return $validateResult;
+    } else {
+      $getConnection = $this->objConnection->getConnection();
+
+      try {
+        $sql = "INSERT INTO customer_service (date, time, id_service, id_client) values (:date, :time, :id_service, :id_client)";
+
+        $stmt = $getConnection->prepare($sql);
+        $stmt->bindParam(":date", $this->date);
+        $stmt->bindParam(":time", $this->time);
+        $stmt->bindParam(":id_service", $this->idService);
+        $stmt->bindParam(":id_client", $this->idClient);
+
+        if ($stmt->execute()) {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (PDOException $error) {
+        echo "Error: " . $error->getMessage();
+      }
+    }
+  }
+
   public function read()
   {
     $getConnection = $this->objConnection->getConnection();
 
     try {
-      $sql = "SELECT id, date, time, id_service, id_client FROM customer_service";
+      $sql = "SELECT cs.id, cs.date, cs.time, c.name as client, s.name as service FROM customer_service cs JOIN client c ON cs.id_client = c.id JOIN service s ON cs.id_service = s.id";
 
       $stmt = $getConnection->prepare($sql);
 
