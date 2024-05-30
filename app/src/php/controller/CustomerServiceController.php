@@ -3,6 +3,8 @@
 namespace Guilherme\Barbersystem\controller;
 
 use Guilherme\Barbersystem\model\CustomerServiceModel;
+use Guilherme\Barbersystem\model\ServiceModel;
+use Guilherme\Barbersystem\model\ClientModel;
 
 require_once $_SERVER["DOCUMENT_ROOT"] . "/barbersystem/app/vendor/autoload.php";
 
@@ -14,6 +16,28 @@ class CustomerServiceController
     $result = $objCustomerService->read();
 
     require_once dirname(__DIR__) . "/view/CustomerServiceListView.php";
+  }
+
+  public static function createCustomerService()
+  {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $objCustomerServiceModel = new CustomerServiceModel();
+      $result = $objCustomerServiceModel->create($_POST);
+
+      if ($result === true) {
+        $result = ["name" => "", "sex" => "", "address" => "", "birth" => "", "phone" => ""];
+      }
+    } else {
+      $objServiceModel = new ServiceModel();
+      $objClientModel = new ClientModel();
+
+      $dataService = $objServiceModel->read();
+      $dataClient = $objClientModel->read("client");
+
+      $result = ["name" => "", "sex" => "", "address" => "", "birth" => "", "phone" => ""];
+    }
+
+    require dirname(__DIR__) . "/view/CustomerServiceCreateFormView.php";
   }
 
   public static function deleteCustomerService($id)
