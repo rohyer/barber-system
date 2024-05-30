@@ -47,12 +47,18 @@
         <label for="client">Cliente:</label>
         <div class="form__input-field--group">
           <select name="client" id="client">
-            <option value="<?php echo $client["id"] ?>" selected><?php echo $client["name"] ?></option>
-            <!-- <?php foreach ($clientData as $client) : ?>
-            <?php endforeach; ?>
-            <option value="M" <?php echo (isset($result[0]["sex"]) && $result[0]["sex"] === "M") ? "selected" : ""; ?>>Masculino</option>
-            <option value="F" <?php echo (isset($result[0]["sex"]) && $result[0]["sex"] === "F") ? "selected" : ""; ?>>Feminino</option>
-            <option value="Outro" <?php echo (isset($result[0]["sex"]) && $result[0]["sex"] === "Outro") ? "selected" : ""; ?>>Outro</option> -->
+            <option value="<?php echo $result[0]["id_client"] ?>" selected><?php echo $result[0]["client"] ?></option>
+          </select>
+          <div class="bar"></div>
+        </div>
+        <span class="form__error"><?php echo isset($result["client"]) ? $result["client"] : ""; ?></span>
+      </div>
+
+      <div class="form__input-field">
+        <label for="service">Serviço:</label>
+        <div class="form__input-field--group">
+          <select name="service" id="service">
+            <option value="<?php echo $result[0]["id_service"] ?>" selected><?php echo $result[0]["service"] ?></option>
           </select>
           <div class="bar"></div>
         </div>
