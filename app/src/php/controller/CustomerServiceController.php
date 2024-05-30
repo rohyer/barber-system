@@ -49,4 +49,18 @@ class CustomerServiceController
       header("Location: /barbersystem/app/public/atendimentos");
     }
   }
+
+  public static function editCustomerService($id)
+  {
+    $objCustomerServiceModel = new CustomerServiceModel();
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $objCustomerServiceModel->edit($_POST);
+      $result = $objCustomerServiceModel->getCustomerServiceToEdit($id);
+    } else {
+      $result - $objCustomerServiceModel->getCustomerServiceToEdit($id);
+    }
+
+    require_once dirname(__DIR__) . "/view/CustomerServiceEditFormView.php";
+  }
 }
