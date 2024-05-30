@@ -19,7 +19,7 @@
   <div class="general__content">
     <div class="general__top">
       <h1 class="general__title">Atendimentos</h1>
-      <a href="cliente/cadastro"><i class="fa-solid fa-plus"></i></a>
+      <a href="atendimento/cadastro"><i class="fa-solid fa-plus"></i></a>
     </div>
 
     <div class="list__data">
