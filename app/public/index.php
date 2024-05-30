@@ -20,6 +20,10 @@ switch ($finalUri["path"]) {
     CustomerServiceController::readCustomerService();
     break;
 
+  case '/barbersystem/app/public/atendimento/cadastro':
+    CustomerServiceController::createCustomerService();
+    break;
+
   case '/barbersystem/app/public/atendimento/deleta':
     if ($finalUri["query"]) {
       $query = explode("=", $finalUri["query"])[1];
