@@ -58,7 +58,7 @@ class CustomerServiceController
       $objCustomerServiceModel->edit($_POST);
       $result = $objCustomerServiceModel->getCustomerServiceToEdit($id);
     } else {
-      $result - $objCustomerServiceModel->getCustomerServiceToEdit($id);
+      $result = $objCustomerServiceModel->getCustomerServiceToEdit($id);
     }
 
     require_once dirname(__DIR__) . "/view/CustomerServiceEditFormView.php";
