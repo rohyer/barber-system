@@ -14,6 +14,7 @@
 
 <body>
 
+
   <?php include dirname(__DIR__) . "/view/components/nav.php"; ?>
 
   <div class="general__content">
@@ -30,10 +31,10 @@
 
       <div class="list__list">
         <div class="list__head-row">
+          <span>Cliente</span>
+          <span>Serviço</span>
           <span>Data</span>
           <span>Horário</span>
-          <span>Serviço</span>
-          <span>Cliente</span>
         </div>
 
         <?php
@@ -41,10 +42,10 @@
 
           <div class='list__row'>
             <a href='#'></a>
+            <span><?php echo $r["client"] ?> </span>
+            <span><?php echo $r["service"] ?></span>
             <span><?php echo $r["date"] ?></span>
             <span><?php echo $r["time"] ?></span>
-            <span><?php echo $r["id_service"] ?></span>
-            <span><?php echo $r["id_client"] ?> </span>
             <span class="list__edit">
               <a href="atendimento/edita?id=<?php echo $r["id"] ?>">
                 <i class="fa-solid fa-pen-to-square"></i>
