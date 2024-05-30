@@ -131,4 +131,27 @@ class CustomerServiceModel
       echo "Error: " . $error->getMessage();
     }
   }
+
+  public function getCustomerServiceToEdit($id)
+  {
+    $getConnection = $this->objConnection->getConnection();
+
+    $this->id = $id;
+
+    try {
+      $sql = "SELECT cs.id, cs.date, cs.time, c.id as id_client, s.id as id_service, c.name as client, s.name as service FROM customer_service cs JOIN client c ON cs.id_client = c.id JOIN service s ON cs.id_service = s.id WHERE cs.id = :id LIMIT 1";
+
+      $stmt = $getConnection->prepare($sql);
+      $stmt->bindParam(":id", $this->id);
+
+      if ($stmt->execute()) {
+        $result = $stmt->fetchAll();
+        return $result;
+      } else {
+        return false;
+      }
+    } catch (PDOException $error) {
+      echo "Error: " . $error->getMessage();
+    }
+  }
 }
