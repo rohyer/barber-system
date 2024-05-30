@@ -26,7 +26,7 @@
       <div class="form__input-field">
         <label for="date">Data:</label>
 
-        <div class="form__input-fied--group">
+        <div class="form__input-field--group">
           <input type="date" id="date" name="date" value="<?php echo isset($result[0]) ? $result[0]["date"] : ""; ?>">
           <div class="bar"></div>
           <span class="form__error"><?php echo isset($result["date"]) ? $result["date"] : ""; ?></span>
@@ -36,7 +36,7 @@
       <div class="form__input-field">
         <label for="time">Horário:</label>
 
-        <div class="form__input-fied--group">
+        <div class="form__input-field--group">
           <input type="time" id="time" name="time" value="<?php echo isset($result[0]) ? $result[0]["time"] : ""; ?>">
           <div class="bar"></div>
           <span class="form__error"><?php echo isset($result["time"]) ? $result["time"] : ""; ?></span>
