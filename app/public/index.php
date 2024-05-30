@@ -31,6 +31,13 @@ switch ($finalUri["path"]) {
     CustomerServiceController::deleteCustomerService($query);
     break;
 
+  case '/barbersystem/app/public/atendimento/edita':
+    if ($finalUri["query"]) {
+      $query = explode("=", $finalUri["query"])[1];
+    }
+    CustomerServiceController::editCustomerService($query);
+    break;
+
     // Clientes
   case '/barbersystem/app/public/cliente/cadastro':
     ClientController::createClient();
