@@ -154,4 +154,34 @@ class CustomerServiceModel
       echo "Error: " . $error->getMessage();
     }
   }
+
+  public function edit($data)
+  {
+    $this->id = intval($data["id"]);
+    $validateResult = $this->validateForm($data);
+
+    if ($validateResult !== true) {
+      return $validateResult;
+    } else {
+      $getConnection = $this->objConnection->getConnection();
+
+      try {
+        $sql = "UPDATE customer_service SET date = :date, time = :time, id_service = :id_service, id_client = :id_client LIMIT 1";
+
+        $stmt = $getConnection->prepare($sql);
+        $stmt->bindParam(":date", $this->date);
+        $stmt->bindParam(":time", $this->time);
+        $stmt->bindParam(":id_service", $this->idService);
+        $stmt->bindParam(":id_client", $this->idClient);
+
+        if ($stmt->execute()) {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (PDOException $error) {
+        echo "Error: " . $error->getMessage();
+      }
+    }
+  }
 }
