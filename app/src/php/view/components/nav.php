@@ -1,4 +1,4 @@
-<nav class="nav" data-state="close">
+<nav class="nav" data-state="open">
   <div class="nav__top">
     <!-- <a href=""><i class="nav__logo-icon fa-solid fa-scissors"></i></a> -->
     <div><i class="nav__menu-icon fa-solid fa-bars" id="nav-menu"></i></div>
