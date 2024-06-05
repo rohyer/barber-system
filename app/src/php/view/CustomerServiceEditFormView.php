@@ -48,6 +48,15 @@
         <div class="form__input-field--group">
           <select name="client" id="client">
             <option value="<?php echo $result[0]["id_client"] ?>" selected><?php echo $result[0]["client"] ?></option>
+
+            <?php foreach ($dataClient as $client) :
+              if ($result[0]["id_client"] === $client["id"]) :
+                continue;
+              endif;
+            ?>
+
+              <option value="<?php echo $client["id"]; ?>"><?php echo $client["name"]; ?></option>
+            <?php endforeach; ?>
           </select>
           <div class="bar"></div>
         </div>
@@ -59,6 +68,15 @@
         <div class="form__input-field--group">
           <select name="service" id="service">
             <option value="<?php echo $result[0]["id_service"] ?>" selected><?php echo $result[0]["service"] ?></option>
+
+            <?php
+            foreach ($dataService as  $service) :
+              if ($result[0]["id_service"] === $service["id"]) :
+                continue;
+              endif;
+            ?>
+              <option value="<?php echo $service["id"]; ?>"><?php echo $service["name"]; ?></option>
+            <?php endforeach ?>
           </select>
           <div class="bar"></div>
         </div>
