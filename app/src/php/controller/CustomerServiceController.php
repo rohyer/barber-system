@@ -53,6 +53,11 @@ class CustomerServiceController
   public static function editCustomerService($id)
   {
     $objCustomerServiceModel = new CustomerServiceModel();
+    $objServiceModel = new ServiceModel();
+    $objClientModel = new ClientModel();
+
+    $dataService = $objServiceModel->read();
+    $dataClient = $objClientModel->read("client");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $objCustomerServiceModel->edit($_POST);
