@@ -31,9 +31,9 @@
 
       <div class="schedule-list__list">
         <div class="schedule-list__head-row">
+          <span>Data</span>
           <span>Cliente</span>
           <span>Serviço</span>
-          <span>Data</span>
           <span>Horário</span>
         </div>
 
@@ -42,9 +42,15 @@
 
           <div class='schedule-list__row'>
             <a href='#'></a>
-            <span><?php echo $r["client"] ?> </span>
+            <span>
+              <div><?php echo date("D, d M", strtotime($r["date"])) ?></div>
+              <div class="schedule-list__time"><?php echo $r["time"] ?></div>
+            </span>
+            <span>
+              <div><?php echo $r["client"] ?></div>
+              <div class="schedule-list__time"><?php echo $r["phone"] ?></div>
+            </span>
             <span><?php echo $r["service"] ?></span>
-            <span><?php echo $r["date"] ?></span>
             <span><?php echo $r["time"] ?></span>
             <span class="schedule-list__edit">
               <a href="atendimento/edita?id=<?php echo $r["id"] ?>">
