@@ -23,14 +23,14 @@
       <a href="agenda/cadastro"><i class="fa-solid fa-plus"></i></a>
     </div>
 
-    <div class="list__data">
-      <div class="list__options" style="display: none">
-        <span class="list__categories" data-state="true">Ativos</span>
-        <span class="list__categories" data-state="false">Desativos</span>
+    <div class="schedule-list__data">
+      <div class="schedule-list__options" style="display: none">
+        <span class="schedule-list__categories" data-state="true">Ativos</span>
+        <span class="schedule-list__categories" data-state="false">Desativos</span>
       </div>
 
-      <div class="list__list">
-        <div class="list__head-row">
+      <div class="schedule-list__list">
+        <div class="schedule-list__head-row">
           <span>Cliente</span>
           <span>Serviço</span>
           <span>Data</span>
@@ -40,18 +40,18 @@
         <?php
         foreach ($result as $r) : ?>
 
-          <div class='list__row'>
+          <div class='schedule-list__row'>
             <a href='#'></a>
             <span><?php echo $r["client"] ?> </span>
             <span><?php echo $r["service"] ?></span>
             <span><?php echo $r["date"] ?></span>
             <span><?php echo $r["time"] ?></span>
-            <span class="list__edit">
+            <span class="schedule-list__edit">
               <a href="atendimento/edita?id=<?php echo $r["id"] ?>">
                 <i class="fa-solid fa-pen-to-square"></i>
               </a>
             </span>
-            <span class="list__delete">
+            <span class="schedule-list__delete">
               <a href="atendimento/deleta?id=<?php echo $r["id"] ?>">
                 <i class='fa-solid fa-trash'></i>
               </a>
