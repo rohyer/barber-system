@@ -44,7 +44,7 @@
 
   &__head-row {
     display: grid;
-    grid-template-columns: 1fr 1fr 0.5fr 0.5fr 0.25fr 0.25fr;
+    grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.25fr 0.25fr;
     background-color: #f3f3f3;
     padding: 15px;
 
@@ -62,7 +62,7 @@
   &__row {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr 0.5fr 0.5fr 0.25fr 0.25fr;
+    grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.25fr 0.25fr;
     height: 30px;
     background-color: #ffffff;
     padding: 15px;
@@ -89,6 +89,11 @@
       color: #333333;
       text-align: left;
     }
+  }
+
+  &__time {
+    font-size: 14px;
+    color: #888888;
   }
 
   span {
