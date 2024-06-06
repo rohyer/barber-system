@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-  <title>Cadastro de Clientes</title>
+  <title>Cadastro de Serviço</title>
   <script src="https://kit.fontawesome.com/5d76c62972.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../../dist/css/style.min.css">
 </head>
@@ -17,7 +17,7 @@
 
   <div class="general__content">
     <div class="general__top">
-      <h1 class="general__title">Clientes</h1>
+      <h1 class="general__title">Serviço</h1>
     </div>
 
     <form action="cadastro" method="post" class="form__form">
@@ -27,7 +27,7 @@
         <div class="bar"></div>
         <span class="form__error"><?php echo isset($result["name"]) ? $result["name"] : ""; ?></span>
       </div>
-      
+
       <div class="form__input-field">
         <label for="value">Preço:</label>
         <input type="text" id="value" name="value">
