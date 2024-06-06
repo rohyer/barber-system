@@ -17,7 +17,7 @@
 
   <div class="general__content">
     <div class="general__top">
-      <h1 class="general__title">Atendimentos</h1>
+      <h1 class="general__title">Cadastrar novo atendimento</h1>
     </div>
 
     <form action="cadastro" method="post" class="form__form">
