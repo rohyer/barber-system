@@ -16,22 +16,22 @@ switch ($finalUri["path"]) {
     AdminController::getHome();
     break;
 
-  case '/barbersystem/app/public/atendimentos':
+  case '/barbersystem/app/public/agenda':
     CustomerServiceController::readCustomerService();
     break;
 
-  case '/barbersystem/app/public/atendimento/cadastro':
+  case '/barbersystem/app/public/agenda/cadastro':
     CustomerServiceController::createCustomerService();
     break;
 
-  case '/barbersystem/app/public/atendimento/deleta':
+  case '/barbersystem/app/public/agenda/deleta':
     if ($finalUri["query"]) {
       $query = explode("=", $finalUri["query"])[1];
     }
     CustomerServiceController::deleteCustomerService($query);
     break;
 
-  case '/barbersystem/app/public/atendimento/edita':
+  case '/barbersystem/app/public/agenda/edita':
     if ($finalUri["query"]) {
       $query = explode("=", $finalUri["query"])[1];
     }
