@@ -53,12 +53,12 @@
             <span><?php echo $r["service"] ?></span>
             <span><?php echo $r["time"] ?></span>
             <span class="schedule-list__edit">
-              <a href="atendimento/edita?id=<?php echo $r["id"] ?>">
+              <a href="agenda/edita?id=<?php echo $r["id"] ?>">
                 <i class="fa-solid fa-pen-to-square"></i>
               </a>
             </span>
             <span class="schedule-list__delete">
-              <a href="atendimento/deleta?id=<?php echo $r["id"] ?>">
+              <a href="agenda/deleta?id=<?php echo $r["id"] ?>">
                 <i class='fa-solid fa-trash'></i>
               </a>
             </span>
