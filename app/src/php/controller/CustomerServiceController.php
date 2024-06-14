@@ -46,7 +46,7 @@ class CustomerServiceController
     $result = $objCustomerService->delete($id);
 
     if ($result) {
-      header("Location: /barbersystem/app/public/atendimentos");
+      header("Location: /barbersystem/app/public/agenda");
     }
   }
 
