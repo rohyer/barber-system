@@ -34,14 +34,15 @@
           <span>Data</span>
           <span>Cliente</span>
           <span>Serviço</span>
-          <span>Horário</span>
+          <span>Contato</span>
         </div>
 
         <?php
-        foreach ($result as $r) : ?>
+        foreach ($result as $r) :
+          $phone = str_replace(array("(", ")", "-", " "), "", $r["phone"]); ?>
 
           <div class='schedule-list__row'>
-            <a href='#'></a>
+            <!-- <a href='#'></a> -->
             <span>
               <div><?php echo date("D, d M", strtotime($r["date"])) ?></div>
               <div class="schedule-list__time"><?php echo $r["time"] ?></div>
@@ -51,7 +52,12 @@
               <div class="schedule-list__time"><?php echo $r["phone"] ?></div>
             </span>
             <span><?php echo $r["service"] ?></span>
-            <span><?php echo $r["time"] ?></span>
+            <span>
+              <a href="https://api.whatsapp.com/send?phone=55<?php echo $phone ?>" target="_blank" rel="noopener noreferrer">
+                <?php echo $r["phone"] ?>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </span>
             <span class="schedule-list__edit">
               <a href="agenda/edita?id=<?php echo $r["id"] ?>">
                 <i class="fa-solid fa-pen-to-square"></i>
