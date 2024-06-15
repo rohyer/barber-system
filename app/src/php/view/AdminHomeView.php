@@ -22,11 +22,15 @@
     </div>
 
     <div class="home__cards">
-      <div class="home__card">Card 1</div>
-      <div class="home__card">Card 2</div>
-      <div class="home__card">Card 3</div>
-      <div class="home__card">Card 4</div>
-      <div class="home__card">Card 5</div>
+      <div class="home__first-row">
+        <div class="home__card">Card 1</div>
+        <div class="home__card">Card 2</div>
+        <div class="home__card">Card 3</div>
+      </div>
+      <div class="home__second-row">
+        <div class="home__card">Card 4</div>
+        <div class="home__card">Card 5</div>
+      </div>
     </div>
   </div>
 
