@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,18 @@
   <script src="https://kit.fontawesome.com/5d76c62972.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../dist/css/style.min.css">
 </head>
+
 <body>
-  
+
   <?php include dirname(__DIR__) . "/view/components/nav.php"; ?>
 
+  <div class="general__content">
+    <div class="general__top">
+      <h1 class="general__title">Dashboard</h1>
+    </div>
+
+  </div>
+
 </body>
+
 </html>
