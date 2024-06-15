@@ -2,6 +2,7 @@
   &__cards {
     display: flex;
     flex-direction: column;
+    gap: 30px;
 
     & > div {
       display: flex;
@@ -9,20 +10,35 @@
   }
 
   &__first-row {
+    gap: 30px;
+
     & > div {
-      width: 32%;
-      height: 300px;
+      width: 33%;
+      height: 225px;
     }
   }
 
   &__second-row {
+    gap: 30px;
+
     & > div {
-      width: 48%;
-      height: 30px;
+      width: 50%;
+      height: 225px;
     }
   }
 
   &__card {
-    background-color: #ddd;
+    background-color: #ededed;
+    border-radius: 3px;
+    box-shadow: 2px 0px 12px rgba(40, 40, 40, 0.2);
+    padding: 15px;
+  }
+
+  &__card-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    color: #333333;
   }
 }
