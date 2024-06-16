@@ -17,21 +17,6 @@
 
   <?php include dirname(__DIR__) . "/view/components/nav.php"; ?>
 
-
-  <?php
-  $amount = [];
-  $services = [];
-  for ($i = 0; $i < count($dataByService); $i++) :
-    $amount[$i] = $dataByService[$i]["amount"];
-    $services[$i] = $dataByService[$i]["name"];
-  endfor;
-
-  var_dump($amount);
-  var_dump($services);
-  ?>
-
-
-
   <div class="general__content">
     <div class="general__top">
       <h1 class="general__title">Dashboard</h1>
@@ -63,6 +48,14 @@
     </div>
   </div>
 
+  <?php
+  $amount = [];
+  $services = [];
+  for ($i = 0; $i < count($dataByService); $i++) :
+    $amount[$i] = $dataByService[$i]["amount"];
+    $services[$i] = $dataByService[$i]["name"];
+  endfor;
+  ?>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
