@@ -2,9 +2,16 @@
 
 namespace Guilherme\Barbersystem\controller;
 
-class AdminController {
+use Guilherme\Barbersystem\model\CustomerServiceModel;
 
-  public static function getHome() {
+class AdminController
+{
+
+  public static function getHome()
+  {
+    $objCustomerServiceModel = new CustomerServiceModel();
+    $dataByService = $objCustomerServiceModel->getDataByService();
+
     include dirname(__DIR__) . "/view/AdminHomeView.php";
   }
 }
