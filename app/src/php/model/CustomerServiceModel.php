@@ -184,4 +184,24 @@ class CustomerServiceModel
       }
     }
   }
+
+  public function getDataByService()
+  {
+    $getConnection = $this->objConnection->getConnection();
+
+    try {
+      $sql = "SELECT count(*) as amount, s.name FROM customer_service cs JOIN service s ON cs.id_service = s.id GROUP BY s.name";
+
+      $stmt = $getConnection->prepare($sql);
+
+      if ($stmt->execute()) {
+        $result = $stmt->fetchAll();
+        return $result;
+      } else {
+        return false;
+      }
+    } catch (PDOException $error) {
+      echo "Error: " . $error->getMessage();
+    }
+  }
 }
