@@ -11,13 +11,14 @@
     "cssnano": "^5.1.5",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
-    "gulp-sass": "^5.1.0",
     "gulp-concat": "^2.6.1",
     "gulp-eslint": "^6.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
     "postcss": "^8.4.12",
     "sass": "^1.49.9"
-  }
+  },
+  "dependencies": {}
 }

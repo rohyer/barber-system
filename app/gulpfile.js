@@ -1,9 +1,9 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
+const gulp = require("gulp");
+const sass = require("gulp-sass")(require("sass"));
 const autoprefixer = require("autoprefixer");
 const browsersync = require("browser-sync").create();
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
+const concat = require("gulp-concat");
+const uglify = require("gulp-uglify");
 const plumber = require("gulp-plumber");
 const del = require("del");
 const cssnano = require("cssnano");
@@ -16,14 +16,10 @@ const eslint = require("gulp-eslint");
 // ];
 
 // Get Style files
-const listStyles = [
-  'src/scss/*.scss'
-];
+const listStyles = ["src/scss/*.scss"];
 
 // Get Script files
-const listScripts = [
-  'src/js/*.js'
-];
+const listScripts = ["src/js/*.js"];
 
 // Configure Server to BrowserSync
 function browserSync(done) {
@@ -66,7 +62,7 @@ function css() {
   return gulp
     .src(listStyles)
     .pipe(plumber())
-    .pipe(concat('style.min.css'))
+    .pipe(concat("style.min.css"))
     .pipe(sass({ outputStyle: "compressed" }))
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(gulp.dest("dist/css"))
@@ -78,7 +74,7 @@ function cssFast() {
   return gulp
     .src(listStyles)
     .pipe(plumber())
-    .pipe(concat('style.min.css'))
+    .pipe(concat("style.min.css"))
     .pipe(sass({ outputStyle: "expanded" }))
     .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest("dist/css"))
@@ -90,9 +86,9 @@ function scripts() {
   return gulp
     .src(listScripts)
     .pipe(plumber())
-    .pipe(concat('all.js'))
+    .pipe(concat("all.js"))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/js'))
+    .pipe(gulp.dest("dist/js"))
     .pipe(browsersync.stream());
 }
 // Process and bundle Script files to WatchFiles Task
@@ -100,8 +96,8 @@ function scriptsFast() {
   return gulp
     .src(listScripts)
     .pipe(plumber())
-    .pipe(concat('all.js'))
-    .pipe(gulp.dest('dist/js'))
+    .pipe(concat("all.js"))
+    .pipe(gulp.dest("dist/js"))
     .pipe(browsersync.stream());
 }
 
