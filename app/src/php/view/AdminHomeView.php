@@ -26,12 +26,12 @@
       <div class="home__first-row">
         <div class="home__card">
           <h3 class="home__card-title">Atendimentos em <?php echo date("F"); ?></h3>
-          <div class="home__chart">
-            <canvas id="myChart"></canvas>
-          </div>
         </div>
         <div class="home__card">
           <h3 class="home__card-title">Atendimentos por serviços</h3>
+          <div class="home__chart">
+            <canvas id="myChart"></canvas>
+          </div>
         </div>
         <div class="home__card">
           <h3 class="home__card-title">Atendimentos por colaboradores</h3>
@@ -78,7 +78,7 @@
         responsive: true,
         plugins: {
           legend: {
-            position: 'right',
+            position: 'top',
           },
           title: {
             display: false,
