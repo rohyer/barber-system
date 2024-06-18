@@ -53,6 +53,19 @@
       </div>
 
       <div class="form__input-field">
+        <label for="employee">Colaborador:</label>
+        <div class="form__input-field--group">
+          <select name="employee" id="employee">
+            <?php foreach ($dataEmployee as $employee) : ?>
+              <option value="<?php echo $employee["id"]; ?>"><?php echo $employee["name"]; ?></option>
+            <?php endforeach ?>
+          </select>
+          <div class="bar"></div>
+        </div>
+        <span class="form__error"><?php echo isset($result["employee"]) ? $result["employee"] : ""; ?></span>
+      </div>
+
+      <div class="form__input-field">
         <label for="service">Serviço:</label>
         <div class="form__input-field--group">
           <select name="service" id="service">
