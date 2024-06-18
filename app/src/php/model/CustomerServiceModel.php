@@ -14,6 +14,7 @@ class CustomerServiceModel
   private $time;
   private $idService;
   private $idClient;
+  private $idEmployee;
   private $objConnection;
 
   public function __construct()
@@ -48,6 +49,11 @@ class CustomerServiceModel
     } else {
       $this->idClient = $this->testInput($data["client"]);
     }
+    if (empty($data["employee"])) {
+      $employeeError = "Campo colaborador necessário";
+    } else {
+      $this->idEmployee = $this->testInput($data["employee"]);
+    }
     if (empty($data["service"])) {
       $serviceError = "Campo serviço necessário";
     } else {
@@ -71,13 +77,14 @@ class CustomerServiceModel
       $getConnection = $this->objConnection->getConnection();
 
       try {
-        $sql = "INSERT INTO customer_service (date, time, id_service, id_client) values (:date, :time, :id_service, :id_client)";
+        $sql = "INSERT INTO customer_service (date, time, id_service, id_client, id_employee) values (:date, :time, :id_service, :id_client, :id_employee)";
 
         $stmt = $getConnection->prepare($sql);
         $stmt->bindParam(":date", $this->date);
         $stmt->bindParam(":time", $this->time);
         $stmt->bindParam(":id_service", $this->idService);
         $stmt->bindParam(":id_client", $this->idClient);
+        $stmt->bindParam(":id_employee", $this->idEmployee);
 
         if ($stmt->execute()) {
           return true;
@@ -139,7 +146,7 @@ class CustomerServiceModel
     $this->id = $id;
 
     try {
-      $sql = "SELECT cs.id, cs.date, cs.time, c.id as id_client, s.id as id_service, c.name as client, s.name as service FROM customer_service cs JOIN client c ON cs.id_client = c.id JOIN service s ON cs.id_service = s.id WHERE cs.id = :id LIMIT 1";
+      $sql = "SELECT cs.id, cs.date, cs.time, c.id as id_client, s.id as id_service, e.id as id_employee, c.name as client, s.name as service, e.name as employee FROM customer_service cs JOIN client c ON cs.id_client = c.id JOIN service s ON cs.id_service = s.id JOIN employee e ON cs.id_employee = e.id WHERE cs.id = :id LIMIT 1";
 
       $stmt = $getConnection->prepare($sql);
       $stmt->bindParam(":id", $this->id);
