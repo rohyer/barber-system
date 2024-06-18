@@ -5,6 +5,7 @@ namespace Guilherme\Barbersystem\controller;
 use Guilherme\Barbersystem\model\CustomerServiceModel;
 use Guilherme\Barbersystem\model\ServiceModel;
 use Guilherme\Barbersystem\model\ClientModel;
+use Guilherme\Barbersystem\model\EmployeeModel;
 
 require_once $_SERVER["DOCUMENT_ROOT"] . "/barbersystem/app/vendor/autoload.php";
 
@@ -30,9 +31,11 @@ class CustomerServiceController
     } else {
       $objServiceModel = new ServiceModel();
       $objClientModel = new ClientModel();
+      $objEmployeeModel = new EmployeeModel();
 
       $dataService = $objServiceModel->read();
       $dataClient = $objClientModel->read("client");
+      $dataEmployee = $objEmployeeModel->read("employee");
 
       $result = ["name" => "", "sex" => "", "address" => "", "birth" => "", "phone" => ""];
     }
@@ -55,9 +58,11 @@ class CustomerServiceController
     $objCustomerServiceModel = new CustomerServiceModel();
     $objServiceModel = new ServiceModel();
     $objClientModel = new ClientModel();
+    $objEmployeeModel = new EmployeeModel();
 
     $dataService = $objServiceModel->read();
     $dataClient = $objClientModel->read("client");
+    $dataEmployee = $objEmployeeModel->read("employee");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $objCustomerServiceModel->edit($_POST);
