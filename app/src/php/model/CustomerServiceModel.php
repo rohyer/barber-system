@@ -198,7 +198,27 @@ class CustomerServiceModel
     $getConnection = $this->objConnection->getConnection();
 
     try {
-      $sql = "SELECT count(*) as amount, s.name FROM customer_service cs JOIN service s ON cs.id_service = s.id GROUP BY s.name";
+      $sql = "SELECT count(*) as amount_by_service, s.name as service FROM customer_service cs JOIN service s ON cs.id_service = s.id GROUP BY s.name";
+
+      $stmt = $getConnection->prepare($sql);
+
+      if ($stmt->execute()) {
+        $result = $stmt->fetchAll();
+        return $result;
+      } else {
+        return false;
+      }
+    } catch (PDOException $error) {
+      echo "Error: " . $error->getMessage();
+    }
+  }
+
+  public function getDataByEmployee()
+  {
+    $getConnection = $this->objConnection->getConnection();
+
+    try {
+      $sql = "SELECT count(*) as amount_by_employee, e.name as employee FROM customer_service cs JOIN employee e ON cs.id_employee = e.id GROUP BY e.name";
 
       $stmt = $getConnection->prepare($sql);
 
