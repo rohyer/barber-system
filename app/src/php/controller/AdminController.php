@@ -11,6 +11,7 @@ class AdminController
   {
     $objCustomerServiceModel = new CustomerServiceModel();
     $dataByService = $objCustomerServiceModel->getDataByService();
+    $dataByEmployee = $objCustomerServiceModel->getDataByEmployee();
 
     include dirname(__DIR__) . "/view/AdminHomeView.php";
   }
