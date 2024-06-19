@@ -34,7 +34,7 @@
           <span>Data</span>
           <span>Cliente</span>
           <span>Serviço</span>
-          <span>Contato</span>
+          <span>Colaborador</span>
         </div>
 
         <?php
@@ -49,14 +49,14 @@
             </span>
             <span>
               <div><?php echo $r["client"] ?></div>
-              <div class="schedule-list__time"><?php echo $r["phone"] ?></div>
-            </span>
-            <span><?php echo $r["service"] ?></span>
-            <span>
-              <a href="https://api.whatsapp.com/send?phone=55<?php echo $phone ?>" target="_blank" rel="noopener noreferrer">
+              <a href="https://api.whatsapp.com/send?phone=55<?php echo $phone ?>" target="_blank" rel="noopener noreferrer" class="schedule-list__time">
                 <?php echo $r["phone"] ?>
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </a>
+            </span>
+            <span><?php echo $r["service"] ?></span>
+            <span>
+              <?php echo $r["employee"]; ?>
             </span>
             <span class="schedule-list__edit">
               <a href="agenda/edita?id=<?php echo $r["id"] ?>">
