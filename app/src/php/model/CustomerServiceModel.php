@@ -173,13 +173,14 @@ class CustomerServiceModel
       $getConnection = $this->objConnection->getConnection();
 
       try {
-        $sql = "UPDATE customer_service SET date = :date, time = :time, id_service = :id_service, id_client = :id_client LIMIT 1";
+        $sql = "UPDATE customer_service SET date = :date, time = :time, id_service = :id_service, id_client = :id_client, id_employee = :id_employee LIMIT 1";
 
         $stmt = $getConnection->prepare($sql);
         $stmt->bindParam(":date", $this->date);
         $stmt->bindParam(":time", $this->time);
         $stmt->bindParam(":id_service", $this->idService);
         $stmt->bindParam(":id_client", $this->idClient);
+        $stmt->bindParam(":id_employee", $this->idEmployee);
 
         if ($stmt->execute()) {
           return true;
