@@ -88,6 +88,7 @@
     $nameOfDay = date('l', strtotime($value["date"]));
     $customerServiceByWeekend[$nameOfDay]++;
   }
+
   ?>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -102,7 +103,7 @@
       data: {
         labels: <?= json_encode($services) ?>,
         datasets: [{
-          label: '# of Votes',
+          label: '# atendimentos',
           data: <?= json_encode($amountByService) ?>,
           borderWidth: 1
         }]
@@ -126,7 +127,7 @@
       data: {
         labels: <?= json_encode($employee) ?>,
         datasets: [{
-          label: '# of Votes',
+          label: '# atendimentos',
           data: <?= json_encode($amountByEmployee) ?>,
           borderWidth: 1
         }]
@@ -150,7 +151,15 @@
       data: {
         datasets: [{
           label: "",
-          data: <?= json_encode($customerServiceByWeekend) ?>,
+          data: <?= json_encode([
+                  "Domingo" => $customerServiceByWeekend["Sunday"],
+                  "Segunda" => $customerServiceByWeekend["Monday"],
+                  "Terça" => $customerServiceByWeekend["Tuesday"],
+                  "Quarta" => $customerServiceByWeekend["Wednesday"],
+                  "Quinta" => $customerServiceByWeekend["Thursday"],
+                  "Sexta" => $customerServiceByWeekend["Friday"],
+                  "Sábado" => $customerServiceByWeekend["Saturday"]
+                ]) ?>,
           backgroundColor: [
             'rgba(255, 99, 132, 0.4)',
             'rgba(255, 159, 64, 0.4)',
