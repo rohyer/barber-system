@@ -1,3 +1,15 @@
+<?php
+
+$formatter = new IntlDateFormatter(
+  "pt_BR",
+  IntlDateFormatter::RELATIVE_LONG,
+  IntlDateFormatter::NONE,
+  "America/Sao_Paulo",
+  IntlDateFormatter::GREGORIAN,
+);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,14 +35,14 @@
       <a href="agenda/cadastro"><i class="fa-solid fa-plus"></i></a>
     </div>
 
-    <div class="schedule-list__data">
-      <div class="schedule-list__options" style="display: none">
-        <span class="schedule-list__categories" data-state="true">Ativos</span>
-        <span class="schedule-list__categories" data-state="false">Desativos</span>
+    <div class="list__data">
+      <div class="list__options" style="display: none">
+        <span class="list__categories" data-state="true">Ativos</span>
+        <span class="list__categories" data-state="false">Desativos</span>
       </div>
 
-      <div class="schedule-list__list">
-        <div class="schedule-list__head-row">
+      <div class="list__list">
+        <div class="list__head-row">
           <span>Data</span>
           <span>Cliente</span>
           <span>Serviço</span>
@@ -39,17 +51,18 @@
 
         <?php
         foreach ($result as $r) :
-          $phone = str_replace(array("(", ")", "-", " "), "", $r["phone"]); ?>
+          $phone = str_replace(array("(", ")", "-", " "), "", $r["phone"]);
+          $date = new DateTime($r["date"], new DateTimeZone("America/Sao_Paulo")); ?>
 
-          <div class='schedule-list__row'>
+          <div class='list__row'>
             <!-- <a href='#'></a> -->
             <span>
-              <div><?php echo date("D, d M", strtotime($r["date"])) ?></div>
-              <div class="schedule-list__time"><?php echo $r["time"] ?></div>
+              <div><?php echo $formatter->format($date) ?></div>
+              <div class="list__time"><?php echo $r["time"] ?></div>
             </span>
             <span>
               <div><?php echo $r["client"] ?></div>
-              <a href="https://api.whatsapp.com/send?phone=55<?php echo $phone ?>" target="_blank" rel="noopener noreferrer" class="schedule-list__time">
+              <a href="https://api.whatsapp.com/send?phone=55<?php echo $phone ?>" target="_blank" rel="noopener noreferrer" class="list__time">
                 <?php echo $r["phone"] ?>
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </a>
@@ -58,12 +71,12 @@
             <span>
               <?php echo $r["employee"]; ?>
             </span>
-            <span class="schedule-list__edit">
+            <span class="list__edit">
               <a href="agenda/edita?id=<?php echo $r["id"] ?>">
                 <i class="fa-solid fa-pen-to-square"></i>
               </a>
             </span>
-            <span class="schedule-list__delete">
+            <span class="list__delete">
               <a href="agenda/deleta?id=<?php echo $r["id"] ?>">
                 <i class='fa-solid fa-trash'></i>
               </a>
