@@ -52,7 +52,7 @@
           </div>
         </div>
         <div class="home__card">
-          <h3 class="home__card-title">Clientes menos frequentes</h3>
+          <h3 class="home__card-title">Atendimentos por mês</h3>
         </div>
       </div>
     </div>
