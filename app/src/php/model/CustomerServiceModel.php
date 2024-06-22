@@ -298,7 +298,7 @@ class CustomerServiceModel
     $year = $currentDate->format("Y");
     $month = $currentDate->format("m");
     
-    $date = $year . "-" . $month . "-__";
+    $date = $year . "-__-__";
     $status = "closed";
 
     try {
