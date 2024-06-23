@@ -6,6 +6,7 @@ use Guilherme\Barbersystem\model\ConnectionModel;
 use PDOException;
 use DateTime;
 use DateTimeZone;
+use PDO;
 
 require_once $_SERVER["DOCUMENT_ROOT"] . "/barbersystem/app/vendor/autoload.php";
 
@@ -237,12 +238,13 @@ class CustomerServiceModel
     }
   }
 
-  public function getClosedCustomerServiceOnCurrentMonth() {
+  public function getClosedCustomerServiceOnCurrentMonth()
+  {
     $getConnection = $this->objConnection->getConnection();
-    $currentDate = new DateTime("now",new DateTimeZone("America/Sao_Paulo"));
+    $currentDate = new DateTime("now", new DateTimeZone("America/Sao_Paulo"));
     $year = $currentDate->format("Y");
     $month = $currentDate->format("m");
-    
+
     $date = $year . "-" . $month . "-__";
     $status = "closed";
 
@@ -264,12 +266,13 @@ class CustomerServiceModel
     }
   }
 
-  public function getOpenCustomerServiceOnCurrentMonth() {
+  public function getOpenCustomerServiceOnCurrentMonth()
+  {
     $getConnection = $this->objConnection->getConnection();
-    $currentDate = new DateTime("now",new DateTimeZone("America/Sao_Paulo"));
+    $currentDate = new DateTime("now", new DateTimeZone("America/Sao_Paulo"));
     $year = $currentDate->format("Y");
     $month = $currentDate->format("m");
-    
+
     $date = $year . "-" . $month . "-__";
     $status = "open";
 
@@ -291,13 +294,14 @@ class CustomerServiceModel
     }
   }
 
-  public function getClosedCustomerServiceOnCurrentMonthByWeekend() {
+  public function getClosedCustomerServiceOnCurrentMonthByWeekend()
+  {
     $getConnection = $this->objConnection->getConnection();
 
-    $currentDate = new DateTime("now",new DateTimeZone("America/Sao_Paulo"));
+    $currentDate = new DateTime("now", new DateTimeZone("America/Sao_Paulo"));
     $year = $currentDate->format("Y");
     $month = $currentDate->format("m");
-    
+
     $date = $year . "-__-__";
     $status = "closed";
 
@@ -311,7 +315,29 @@ class CustomerServiceModel
         $result = $stmt->fetchAll();
         return $result;
       }
+    } catch (PDOException $error) {
+      echo "Error: " . $error->getMessage();
+    }
+  }
 
+  public function getClosedCustomerServiceOnCurrentYear()
+  {
+    $getConnection = $this->objConnection->getConnection();
+
+    $currentDate = new DateTime("now", new DateTimeZone("America/Sao_Paulo"));
+    $year = $currentDate->format("Y");
+    $date = $year . "-__-__";
+
+    try {
+      $sql = "SELECT date FROM customer_service WHERE date LIKE :date ORDER BY date";
+
+      $stmt = $getConnection->prepare($sql);
+      $stmt->bindParam(":date", $date);
+
+      if ($stmt->execute()) {
+        $result = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+        return $result;
+      }
     } catch (PDOException $error) {
       echo "Error: " . $error->getMessage();
     }
