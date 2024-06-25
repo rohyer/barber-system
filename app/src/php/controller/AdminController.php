@@ -15,7 +15,7 @@ class AdminController
     $amountClosedCustomerService = $objCustomerServiceModel->getClosedCustomerServiceOnCurrentMonth();
     $amountOpenCustomerService = $objCustomerServiceModel->getOpenCustomerServiceOnCurrentMonth();
     $dateByWeekend = $objCustomerServiceModel->getClosedCustomerServiceOnCurrentMonthByWeekend();
-    $dateByMonths = $objCustomerServiceModel->getClosedCustomerServiceOnCurrentYear();
+    $dataByMonths = $objCustomerServiceModel->structureClosedCustomerServiceByMonths();
 
     include dirname(__DIR__) . "/view/AdminHomeView.php";
   }
