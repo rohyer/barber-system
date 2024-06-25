@@ -53,6 +53,10 @@
         </div>
         <div class="home__card">
           <h3 class="home__card-title">Atendimentos por mês</h3>
+
+          <div class="home__chart">
+            <canvas id="chartDataByMonths"></canvas>
+          </div>
         </div>
       </div>
     </div>
@@ -97,6 +101,7 @@
     const dataByService = document.getElementById('chartDataByServices');
     const dataByEmployee = document.getElementById('chartDataByEmployee');
     const dataByWeekend = document.getElementById('chartDataByWeekend');
+    const dataByMonths = document.getElementById('chartDataByMonths');
 
     new Chart(dataByService, {
       type: 'doughnut',
@@ -177,6 +182,70 @@
             'rgb(54, 162, 235)',
             'rgb(153, 102, 255)',
             'rgb(201, 203, 207)'
+          ],
+          borderWidth: 1
+
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          filler: {
+            propagate: false,
+          },
+          title: {
+            display: true,
+            text: (ctx) => 'Fill: ' + ctx.chart.data.datasets[0].fill
+          }
+        },
+        interaction: {
+          intersect: false,
+        },
+        scale: {
+          ticks: {
+            precision: 0
+          },
+          y: {
+            beginAtZero: true
+          }
+        },
+      },
+    });
+
+    new Chart(dataByMonths, {
+      type: 'bar',
+      data: {
+        datasets: [{
+          label: "",
+          data: <?= json_encode($dataByMonths) ?>,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(255, 159, 64, 0.7)',
+            'rgba(255, 205, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(153, 122, 255, 0.7)',
+            'rgba(201, 193, 207, 0.7)',
+            'rgba(201, 203, 207, 0.7)',
+            'rgba(201, 223, 207, 0.7)',
+            'rgba(201, 233, 207, 0.7)',
+            'rgba(201, 73, 207, 0.7)',
+            'rgba(201, 53, 207, 0.7)'
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',
+            'rgb(201, 203, 207)',
+            'rgb(201, 193, 207)',
+            'rgb(201, 203, 207)',
+            'rgb(201, 223, 207)',
+            'rgb(201, 233, 207)',
+            'rgb(201, 73, 207)',
+            'rgb(201, 53, 207)'
           ],
           borderWidth: 1
 
