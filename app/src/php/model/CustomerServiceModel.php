@@ -329,7 +329,7 @@ class CustomerServiceModel
     $date = $year . "-__-__";
 
     try {
-      $sql = "SELECT date FROM customer_service WHERE date LIKE :date ORDER BY date";
+      $sql = "SELECT date FROM customer_service WHERE date LIKE :date and status = 'closed' ORDER BY date";
 
       $stmt = $getConnection->prepare($sql);
       $stmt->bindParam(":date", $date);
@@ -341,5 +341,60 @@ class CustomerServiceModel
     } catch (PDOException $error) {
       echo "Error: " . $error->getMessage();
     }
+  }
+
+  public function structureClosedCustomerServiceByMonths()
+  {
+    $result = $this->getClosedCustomerServiceOnCurrentYear();
+    $monthsResult = [];
+    $monthArray = [
+      "Janeiro" => 0,
+      "Fevereiro" => 0,
+      "Março" => 0,
+      "Abril" => 0,
+      "Maio" => 0,
+      "Junho" => 0,
+      "Julho" => 0,
+      "Agosto" => 0,
+      "Setembro" => 0,
+      "Outubro" => 0,
+      "Novembro" => 0,
+      "Dezembro" => 0,
+    ];
+
+
+    foreach ($result as $key => $value) {
+      $monthsResult[$key] = substr($value, 5, 2);
+    }
+
+    for ($i = 0; $i < count($monthsResult); $i++) {
+      if ($monthsResult[$i] == 01) {
+        $monthArray["Janeiro"]++;
+      } else if ($monthsResult[$i] == "02") {
+        $monthArray["Fevereiro"]++;
+      } else if ($monthsResult[$i] == "03") {
+        $monthArray["Março"]++;
+      } else if ($monthsResult[$i] == "04") {
+        $monthArray["Abril"]++;
+      } else if ($monthsResult[$i] == "05") {
+        $monthArray["Maio"]++;
+      } else if ($monthsResult[$i] == "06") {
+        $monthArray["Junho"]++;
+      } else if ($monthsResult[$i] == "07") {
+        $monthArray["Julho"]++;
+      } else if ($monthsResult[$i] == "08") {
+        $monthArray["Agosto"]++;
+      } else if ($monthsResult[$i] == "09") {
+        $monthArray["Setembro"]++;
+      } else if ($monthsResult[$i] == "10") {
+        $monthArray["Outubro"]++;
+      } else if ($monthsResult[$i] == "11") {
+        $monthArray["Novembro"]++;
+      } else if ($monthsResult[$i] == "12") {
+        $monthArray["Dezembro"]++;
+      }
+    }
+
+    return $monthArray;
   }
 }
