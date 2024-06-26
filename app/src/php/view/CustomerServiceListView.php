@@ -36,7 +36,7 @@ $formatter = new IntlDateFormatter(
     </div>
 
     <div class="list__data">
-      <div class="list__options" style="display: none">
+      <div class="list__options">
         <span class="list__categories" data-state="true">Ativos</span>
         <span class="list__categories" data-state="false">Desativos</span>
       </div>
@@ -50,7 +50,7 @@ $formatter = new IntlDateFormatter(
         </div>
 
         <?php
-        foreach ($result as $r) :
+        foreach ($resultOpen as $r) :
           $phone = str_replace(array("(", ")", "-", " "), "", $r["phone"]);
           $date = new DateTime($r["date"], new DateTimeZone("America/Sao_Paulo")); ?>
 
@@ -71,6 +71,11 @@ $formatter = new IntlDateFormatter(
             <span>
               <?php echo $r["employee"]; ?>
             </span>
+            <span class="list__close">
+              <a href="agenda/conclui?id=<?php echo $r["id"] ?>">
+                <i class="fa-solid fa-circle-check"></i>
+              </a>
+            </span>
             <span class="list__edit">
               <a href="agenda/edita?id=<?php echo $r["id"] ?>">
                 <i class="fa-solid fa-pen-to-square"></i>
@@ -79,11 +84,6 @@ $formatter = new IntlDateFormatter(
             <span class="list__delete">
               <a href="agenda/deleta?id=<?php echo $r["id"] ?>">
                 <i class='fa-solid fa-trash'></i>
-              </a>
-            </span>
-            <span class="list__close">
-              <a href="agenda/conclui?id=<?php echo $r["id"] ?>">
-                <i class="fa-solid fa-circle-check"></i>
               </a>
             </span>
           </div>
