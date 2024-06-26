@@ -14,7 +14,8 @@ class CustomerServiceController
   public static function readCustomerService()
   {
     $objCustomerService = new CustomerServiceModel();
-    $result = $objCustomerService->read();
+    $resultOpen = $objCustomerService->readOpen();
+    $resultClosed = $objCustomerService->readClosed();
 
     require_once dirname(__DIR__) . "/view/CustomerServiceListView.php";
   }
