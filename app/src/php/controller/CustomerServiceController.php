@@ -52,6 +52,16 @@ class CustomerServiceController
       header("Location: /barbersystem/app/public/agenda");
     }
   }
+  
+  public static function closeCustomerService($id)
+  {
+    $objCustomerService = new CustomerServiceModel();
+    $result = $objCustomerService->close($id);
+
+    if ($result) {
+      header("Location: /barbersystem/app/public/agenda");
+    }
+  }
 
   public static function editCustomerService($id)
   {
