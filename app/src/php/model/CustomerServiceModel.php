@@ -198,6 +198,27 @@ class CustomerServiceModel
     }
   }
 
+  public function close($id) {
+    $getConnection = $this->objConnection->getConnection();
+    $this->id = $id;
+
+    try {
+      $sql = "UPDATE customer_service SET status = 'closed' WHERE id = :id";
+
+      $stmt = $getConnection->prepare($sql);
+      $stmt->bindParam(":id", $this->id);
+
+      if ($stmt->execute()) {
+        return true;
+      } else {
+        return false;
+      }
+
+    } catch (PDOException $error) {
+      echo "Error " . $error->getMessage();
+    }
+  }
+
   public function getDataByService()
   {
     $getConnection = $this->objConnection->getConnection();
