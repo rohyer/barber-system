@@ -31,6 +31,13 @@ switch ($finalUri["path"]) {
     CustomerServiceController::deleteCustomerService($query);
     break;
 
+  case '/barbersystem/app/public/agenda/conclui':
+    if ($finalUri["query"]) {
+      $query = explode("=", $finalUri["query"])[1];
+    }
+    CustomerServiceController::closeCustomerService($query);
+    break;
+
   case '/barbersystem/app/public/agenda/edita':
     if ($finalUri["query"]) {
       $query = explode("=", $finalUri["query"])[1];
