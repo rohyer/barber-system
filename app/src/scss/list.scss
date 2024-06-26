@@ -44,7 +44,7 @@
 
   &__head-row {
     display: grid;
-    grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.25fr 0.25fr;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.15fr 0.15fr 0.15fr;
     background-color: #f3f3f3;
     padding: 15px;
 
@@ -62,7 +62,7 @@
   &__row {
     position: relative;
     display: grid;
-    grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.25fr 0.25fr;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.15fr 0.15fr 0.15fr;
     height: 30px;
     background-color: #ffffff;
     padding: 15px;
@@ -108,7 +108,8 @@
   }
 
   &__delete > a,
-  &__edit > a {
+  &__edit > a,
+  &__close > a {
     cursor: pointer;
     position: relative;
     display: flex;
