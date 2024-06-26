@@ -100,10 +100,32 @@ class CustomerServiceModel
     }
   }
 
-  public function read()
+  public function readOpen()
   {
     $getConnection = $this->objConnection->getConnection();
     $status = "open";
+
+    try {
+      $sql = "SELECT cs.id, cs.date, cs.time, c.phone, c.name as client, s.name as service, e.name as employee FROM customer_service cs JOIN client c ON cs.id_client = c.id JOIN service s ON cs.id_service = s.id JOIN employee e ON cs.id_employee = e.id WHERE status = :status ORDER BY cs.date, cs.time";
+
+      $stmt = $getConnection->prepare($sql);
+      $stmt->bindParam(":status", $status);
+
+      if ($stmt->execute()) {
+        $result = $stmt->fetchAll();
+        return $result;
+      } else {
+        return false;
+      }
+    } catch (PDOException $error) {
+      echo "Error: " . $error->getMessage();
+    }
+  }
+  
+  public function readClosed()
+  {
+    $getConnection = $this->objConnection->getConnection();
+    $status = "closed";
 
     try {
       $sql = "SELECT cs.id, cs.date, cs.time, c.phone, c.name as client, s.name as service, e.name as employee FROM customer_service cs JOIN client c ON cs.id_client = c.id JOIN service s ON cs.id_service = s.id JOIN employee e ON cs.id_employee = e.id WHERE status = :status ORDER BY cs.date, cs.time";
