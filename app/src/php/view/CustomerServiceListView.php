@@ -81,6 +81,11 @@ $formatter = new IntlDateFormatter(
                 <i class='fa-solid fa-trash'></i>
               </a>
             </span>
+            <span class="list__close">
+              <a href="agenda/conclui?id=<?php echo $r["id"] ?>">
+                <i class="fa-solid fa-circle-check"></i>
+              </a>
+            </span>
           </div>
         <?php endforeach; ?>
       </div>
