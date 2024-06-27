@@ -88,6 +88,45 @@ $formatter = new IntlDateFormatter(
             </span>
           </div>
         <?php endforeach; ?>
+        <?php
+        foreach ($resultClosed as $r) :
+          $phone = str_replace(array("(", ")", "-", " "), "", $r["phone"]);
+          $date = new DateTime($r["date"], new DateTimeZone("America/Sao_Paulo")); ?>
+
+          <div class='list__row'>
+            <!-- <a href='#'></a> -->
+            <span>
+              <div><?php echo $formatter->format($date) ?></div>
+              <div class="list__time"><?php echo $r["time"] ?></div>
+            </span>
+            <span>
+              <div><?php echo $r["client"] ?></div>
+              <a href="https://api.whatsapp.com/send?phone=55<?php echo $phone ?>" target="_blank" rel="noopener noreferrer" class="list__time">
+                <?php echo $r["phone"] ?>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </span>
+            <span><?php echo $r["service"] ?></span>
+            <span>
+              <?php echo $r["employee"]; ?>
+            </span>
+            <span class="list__close">
+              <a href="agenda/conclui?id=<?php echo $r["id"] ?>">
+                <i class="fa-solid fa-circle-check"></i>
+              </a>
+            </span>
+            <span class="list__edit">
+              <a href="agenda/edita?id=<?php echo $r["id"] ?>">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </a>
+            </span>
+            <span class="list__delete">
+              <a href="agenda/deleta?id=<?php echo $r["id"] ?>">
+                <i class='fa-solid fa-trash'></i>
+              </a>
+            </span>
+          </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>
