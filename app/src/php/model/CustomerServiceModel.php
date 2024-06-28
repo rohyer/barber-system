@@ -240,6 +240,27 @@ class CustomerServiceModel
       echo "Error " . $error->getMessage();
     }
   }
+  
+  public function open($id) {
+    $getConnection = $this->objConnection->getConnection();
+    $this->id = $id;
+
+    try {
+      $sql = "UPDATE customer_service SET status = 'open' WHERE id = :id";
+
+      $stmt = $getConnection->prepare($sql);
+      $stmt->bindParam(":id", $this->id);
+
+      if ($stmt->execute()) {
+        return true;
+      } else {
+        return false;
+      }
+
+    } catch (PDOException $error) {
+      echo "Error " . $error->getMessage();
+    }
+  }
 
   public function getDataByService()
   {
