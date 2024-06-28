@@ -111,8 +111,8 @@ $formatter = new IntlDateFormatter(
               <?php echo $r["employee"]; ?>
             </span>
             <span class="list__close">
-              <a href="agenda/conclui?id=<?php echo $r["id"] ?>">
-                <i class="fa-solid fa-circle-check"></i>
+              <a href="agenda/abre?id=<?php echo $r["id"] ?>">
+                <i class="fa-solid fa-circle-xmark"></i>
               </a>
             </span>
             <span class="list__edit">
