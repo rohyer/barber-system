@@ -17,6 +17,7 @@
     font-weight: 600;
     font-style: normal;
     color: #555;
+    cursor: pointer;
     padding: 0 15px;
 
     &[data-state="true"] {
@@ -56,6 +57,17 @@
       font-style: normal;
       color: #333333;
       text-align: left;
+    }
+  }
+
+  &__open,
+  &__closed {
+
+    &[data-state="false"] {
+      display: none;
+    }
+    &[data-state="true"] {
+      display: block;
     }
   }
 
