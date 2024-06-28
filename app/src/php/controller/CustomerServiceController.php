@@ -64,6 +64,15 @@ class CustomerServiceController
     }
   }
 
+  public static function openCustomerService($id) {
+    $objCustomerService = new CustomerServiceModel();
+    $result = $objCustomerService->open($id);
+
+    if ($result) {
+      header("Location: /barbersystem/app/public/agenda");
+    }
+  }
+
   public static function editCustomerService($id)
   {
     $objCustomerServiceModel = new CustomerServiceModel();
