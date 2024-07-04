@@ -9,15 +9,15 @@ class AdminController
 
   public static function getHome()
   {
-    $objCustomerServiceModel = new CustomerServiceModel();
-    $dataByService = $objCustomerServiceModel->getDataByService();
-    $dataByEmployee = $objCustomerServiceModel->getDataByEmployee();
-    $amountClosedCustomerService = $objCustomerServiceModel->getClosedCustomerServiceOnCurrentMonth();
-    $amountOpenCustomerService = $objCustomerServiceModel->getOpenCustomerServiceOnCurrentMonth();
-    $dateByWeekend = $objCustomerServiceModel->getClosedCustomerServiceOnCurrentMonthByWeekend();
-    $dataByMonths = $objCustomerServiceModel->structureClosedCustomerServiceByMonths();
-    $closedValue = $objCustomerServiceModel->getSumOfClosedCustomerService();
-    $openValue = $objCustomerServiceModel->getSumOfOpenCustomerService();
+    $objCustomerService = new CustomerServiceModel();
+    $dataByService = $objCustomerService->getDataByService();
+    $dataByEmployee = $objCustomerService->getDataByEmployee();
+    $amountClosedData = $objCustomerService->getClosedDataOnCurrentMonth();
+    $amountOpenData = $objCustomerService->getOpenDataOnCurrentMonth();
+    $dateByWeekend = $objCustomerService->getClosedDataOnCurrentMonthByWeekend();
+    $dataByMonths = $objCustomerService->structureClosedDataByMonths();
+    $closedValueSum = $objCustomerService->getSumOfClosedData();
+    $openValueSum = $objCustomerService->getSumOfOpenData();
 
     include dirname(__DIR__) . "/view/AdminHomeView.php";
   }

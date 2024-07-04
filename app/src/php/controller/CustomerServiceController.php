@@ -86,9 +86,9 @@ class CustomerServiceController
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $objCustomerServiceModel->edit($_POST);
-      $result = $objCustomerServiceModel->getCustomerServiceToEdit($id);
+      $result = $objCustomerServiceModel->getDataToEdit($id);
     } else {
-      $result = $objCustomerServiceModel->getCustomerServiceToEdit($id);
+      $result = $objCustomerServiceModel->getDataToEdit($id);
     }
 
     require_once dirname(__DIR__) . "/view/CustomerServiceEditFormView.php";
