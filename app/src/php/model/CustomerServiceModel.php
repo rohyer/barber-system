@@ -265,11 +265,13 @@ class CustomerServiceModel
   public function getDataByService()
   {
     $getConnection = $this->objConnection->getConnection();
+    $status = "closed";
 
     try {
-      $sql = "SELECT count(*) as amount_by_service, s.name as service FROM customer_service cs JOIN service s ON cs.id_service = s.id GROUP BY s.name";
+      $sql = "SELECT count(*) as amount_by_service, s.name as service FROM customer_service cs JOIN service s ON cs.id_service = s.id WHERE cs.status = :status GROUP BY s.name";
 
       $stmt = $getConnection->prepare($sql);
+      $stmt->bindParam(":status", $status);
 
       if ($stmt->execute()) {
         $result = $stmt->fetchAll();
@@ -285,11 +287,13 @@ class CustomerServiceModel
   public function getDataByEmployee()
   {
     $getConnection = $this->objConnection->getConnection();
+    $status = "closed";
 
     try {
-      $sql = "SELECT count(*) as amount_by_employee, e.name as employee FROM customer_service cs JOIN employee e ON cs.id_employee = e.id GROUP BY e.name";
+      $sql = "SELECT count(*) as amount_by_employee, e.name as employee FROM customer_service cs JOIN employee e ON cs.id_employee = e.id WHERE status = :status GROUP BY e.name";
 
       $stmt = $getConnection->prepare($sql);
+      $stmt->bindParam(":status", $status);
 
       if ($stmt->execute()) {
         $result = $stmt->fetchAll();
