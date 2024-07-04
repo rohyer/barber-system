@@ -37,8 +37,8 @@ $formatter = new IntlDateFormatter(
 
     <div class="list__data">
       <div class="list__options">
-        <span class="list__categories" data-state="true">Ativos</span>
-        <span class="list__categories" data-state="false">Desativos</span>
+        <span class="list__categories" data-state="true">Agendados</span>
+        <span class="list__categories" data-state="false">Concluídos</span>
       </div>
 
       <div class="list__list">
