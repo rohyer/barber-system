@@ -500,11 +500,13 @@ class CustomerServiceModel
     $month = $currentDate->format("m");
 
     $date = $year . "-" . $month . "-__";
+    $status = "open";
 
     try {
-      $sql = "SELECT sum(s.value) as value FROM customer_service cs JOIN service s ON cs.id_service = s.id WHERE date LIKE :date";
+      $sql = "SELECT sum(s.value) as value FROM customer_service cs JOIN service s ON cs.id_service = s.id WHERE status = :status AND date LIKE :date";
 
       $stmt = $getConnection->prepare($sql);
+      $stmt->bindParam(":status", $status);
       $stmt->bindParam(":date", $date);
 
       if ($stmt->execute()) {
