@@ -461,4 +461,56 @@ class CustomerServiceModel
 
     return $monthArray;
   }
+
+  public function getSumOfClosedCustomerService() {
+    $getConnection = $this->objConnection->getConnection();
+    $currentDate = new DateTime("now", new DateTimeZone("America/Sao_Paulo"));
+    $year = $currentDate->format("Y");
+    $month = $currentDate->format("m");
+
+    $date = $year . "-" . $month . "-__";
+    $status = "closed";
+
+    try {
+      $sql = "SELECT sum(s.value) AS value FROM customer_service cs JOIN service s ON cs.id_service = s.id WHERE status = :status and date LIKE :date";
+
+      $stmt = $getConnection->prepare($sql);
+      $stmt->bindParam(":status", $status);
+      $stmt->bindParam(":date", $date);
+
+      if ($stmt->execute()) {
+        $result = $stmt->fetchAll();
+        return $result;
+      } else {
+        return false;
+      }
+    } catch (PDOException $error) {
+      echo "Error: " . $error->getMessage();
+    }
+  }
+
+  public function getSumOfOpenCustomerService() {
+    $getConnection = $this->objConnection->getConnection();
+    $currentDate = new DateTime("now", new DateTimeZone("America/Sao_Paulo"));
+    $year = $currentDate->format("Y");
+    $month = $currentDate->format("m");
+
+    $date = $year . "-" . $month . "-__";
+
+    try {
+      $sql = "SELECT sum(s.value) as value FROM customer_service cs JOIN service s ON cs.id_service = s.id WHERE date LIKE :date";
+
+      $stmt = $getConnection->prepare($sql);
+      $stmt->bindParam(":date", $date);
+
+      if ($stmt->execute()) {
+        $result = $stmt->fetchAll();
+        return $result;
+      } else {
+        return false;
+      }
+    } catch (PDOException $error) {
+      echo "Error: " . $error->getMessage();
+    }
+  }
 }
