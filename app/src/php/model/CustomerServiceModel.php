@@ -166,7 +166,7 @@ class CustomerServiceModel
     }
   }
 
-  public function getCustomerServiceToEdit($id)
+  public function getDataToEdit($id)
   {
     $getConnection = $this->objConnection->getConnection();
 
@@ -306,7 +306,7 @@ class CustomerServiceModel
     }
   }
 
-  public function getClosedCustomerServiceOnCurrentMonth()
+  public function getClosedDataOnCurrentMonth()
   {
     $getConnection = $this->objConnection->getConnection();
     $currentDate = new DateTime("now", new DateTimeZone("America/Sao_Paulo"));
@@ -334,7 +334,7 @@ class CustomerServiceModel
     }
   }
 
-  public function getOpenCustomerServiceOnCurrentMonth()
+  public function getOpenDataOnCurrentMonth()
   {
     $getConnection = $this->objConnection->getConnection();
     $currentDate = new DateTime("now", new DateTimeZone("America/Sao_Paulo"));
@@ -362,7 +362,7 @@ class CustomerServiceModel
     }
   }
 
-  public function getClosedCustomerServiceOnCurrentMonthByWeekend()
+  public function getClosedDataOnCurrentMonthByWeekend()
   {
     $getConnection = $this->objConnection->getConnection();
 
@@ -388,7 +388,7 @@ class CustomerServiceModel
     }
   }
 
-  public function getClosedCustomerServiceOnCurrentYear()
+  public function getClosedDataOnCurrentYear()
   {
     $getConnection = $this->objConnection->getConnection();
 
@@ -411,9 +411,9 @@ class CustomerServiceModel
     }
   }
 
-  public function structureClosedCustomerServiceByMonths()
+  public function structureClosedDataByMonths()
   {
-    $result = $this->getClosedCustomerServiceOnCurrentYear();
+    $result = $this->getClosedDataOnCurrentYear();
     $monthsResult = [];
     $monthArray = [
       "Janeiro" => 0,
@@ -466,7 +466,7 @@ class CustomerServiceModel
     return $monthArray;
   }
 
-  public function getSumOfClosedCustomerService() {
+  public function getSumOfClosedData() {
     $getConnection = $this->objConnection->getConnection();
     $currentDate = new DateTime("now", new DateTimeZone("America/Sao_Paulo"));
     $year = $currentDate->format("Y");
@@ -493,7 +493,7 @@ class CustomerServiceModel
     }
   }
 
-  public function getSumOfOpenCustomerService() {
+  public function getSumOfOpenData() {
     $getConnection = $this->objConnection->getConnection();
     $currentDate = new DateTime("now", new DateTimeZone("America/Sao_Paulo"));
     $year = $currentDate->format("Y");
