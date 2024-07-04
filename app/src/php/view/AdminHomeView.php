@@ -30,7 +30,7 @@
           <p class="home__card-text">Atendimentos feitos: <?php echo $amountClosedCustomerService[0]["amount"]; ?></p>
           <p class="home__card-text">Previsão de atendimentos: <?php echo $amountOpenCustomerService[0]["amount"]; ?></p>
           <p class="home__card-text">Faturamento: R$ <?php echo $closedValue[0]['value']; ?></p>
-          <p class="home__card-text">Previsão de faturamento: R$ <?php echo $allValue[0]['value']; ?></p>
+          <p class="home__card-text">Valor a entrar: R$ <?php echo $openValue[0]['value']; ?></p>
         </div>
         <div class="home__card">
           <h3 class="home__card-title">Atendimentos por serviços</h3>
