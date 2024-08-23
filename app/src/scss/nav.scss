@@ -1,7 +1,7 @@
 .nav {
   position: relative;
   overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #00234c;
   border-right: 1px solid #ccc;
   transition: all 0.25s;
@@ -12,6 +12,12 @@
 
   &[data-state="close"] {
     width: 75px;
+  }
+
+  &__box {
+    position: fixed;
+    height: 100vh;
+    background-color: #00234c;
   }
 
   &__top {
