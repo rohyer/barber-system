@@ -16,6 +16,10 @@ switch ($finalUri["path"]) {
     AdminController::getHome();
     break;
 
+  case '/barbersystem/app/public/cadastro':
+    AdminController::getRegister();
+    break;
+
   case '/barbersystem/app/public/agenda':
     CustomerServiceController::readCustomerService();
     break;
