@@ -15,35 +15,47 @@
 
 <body>
 
-  <form action="">
-    <label for="nome">Nome</label>
-    <input type="text" name="name" required>
+  <div class="register">
+    <div class="register__logo">
+      <img src="../assets/barbers-logo.png" alt="Logo">
+    </div>
+    <div class="register__form">
+      <form action="">
+        <h1>Crie sua conta</h1>
+        <p>Se já possui um conta clique <a href="">aqui</a>.</p>
+        <label for="nome">Nome</label>
+        <input type="text" name="name" required>
 
-    <label for="email">E-mail</label>
-    <input type="text" name="email" required>
+        <label for="email">E-mail</label>
+        <input type="text" name="email" required>
 
-    <label for="password">Senha</label>
-    <input type="password" name="password" required>
+        <label for="password">Senha</label>
+        <input type="password" name="password" required>
 
-    <label for="state">Estado</label>
-    <input type="text" name="state" required>
+        <!-- <label for="state">Estado</label>
+        <input type="text" name="state" required>
 
-    <label for="city">Cidade</label>
-    <input type="text" name="city" required>
+        <label for="city">Cidade</label>
+        <input type="text" name="city" required>
 
-    <label for="sex">Sexo</label>
-    <select name="sex" id="sex" required>
-      <option value="M">Masculino</option>
-      <option value="F">Feminino</option>
-    </select>
+        <label for="sex">Sexo</label>
+        <select name="sex" id="sex" required>
+          <option value="M">Masculino</option>
+          <option value="F">Feminino</option>
+        </select>
 
-    <label for="birth">Data de Nascimento</label>
-    <input type="date" name="birth" required>
+        <label for="birth">Data de Nascimento</label>
+        <input type="date" name="birth" required>
 
-    <label for="phone">Telefone</label>
-    <input type="text" name="phone" required>
+        <label for="phone">Telefone</label>
+        <input type="text" name="phone" required> -->
 
-  </form>
+        <button type="submit">Cadastrar</button>
+
+      </form>
+    </div>
+  </div>
+
 
 </body>
 
