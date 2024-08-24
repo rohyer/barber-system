@@ -21,4 +21,8 @@ class AdminController
 
     include dirname(__DIR__) . "/view/AdminHomeView.php";
   }
+
+  public static function getRegister() {
+    include dirname(__DIR__) . "/view/AdminRegisterView.php";
+  }
 }
