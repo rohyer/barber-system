@@ -20,7 +20,7 @@
       <img src="../assets/barbers-logo.png" alt="Logo">
     </div>
     <div class="register__form">
-      <form action="">
+      <form action="cadastro" method="post">
         <h1>Crie sua conta</h1>
         <p>Se já possui um conta clique <a href="">aqui</a>.</p>
         <label for="nome">Nome</label>
