@@ -3,6 +3,7 @@
 namespace Guilherme\Barbersystem\controller;
 
 use Guilherme\Barbersystem\model\CustomerServiceModel;
+use Guilherme\Barbersystem\model\AdminModel;
 
 class AdminController
 {
@@ -22,7 +23,18 @@ class AdminController
     include dirname(__DIR__) . "/view/AdminHomeView.php";
   }
 
-  public static function getRegister() {
+  public static function getRegister()
+  {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $objAdminModel = new AdminModel();
+      $result = $objAdminModel->create($_POST);
+
+      if ($result === true) {
+        $result = ["name" => "", "email" => "", "password" => ""];
+      }
+    } else {
+      $result = ["name" => "", "email" => "", "password" => ""];
+    }
     include dirname(__DIR__) . "/view/AdminRegisterView.php";
   }
 }
